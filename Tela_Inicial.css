@@ -1,0 +1,25 @@
+*{
+    margin: 0%;
+}
+
+header{
+    display: flex;
+    flex-direction:row; 
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    background-color: #DD7D39;
+}
+
+.banner{
+    background-image: url('img/Design\ sem\ nome\ \(5\)\ 1.png');
+    background-size: cover; /* Faz a imagem cobrir todo o espaço [8] */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição */
+    width: 100%;
+    height: 250px; /* Altura do retângulo */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
