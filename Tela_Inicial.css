@@ -3,6 +3,7 @@
     font-family: "Kelly Slab", sans-serif;
 }
 
+/*Header*/
 header{
     display: flex;
     flex-direction:row; 
@@ -13,10 +14,22 @@ header{
     background-color: #DD7D39;
 }
 
+/*Caixa de Busca do Header*/
+.search-box{
+    position: relative;
+    display: inline-block;
+    width: 600px;
+  padding: 25px;
+  border: none;
+  border-radius: 45px;
+  background-color: #FFD8B2;
+}
 
+/*Icones Presentes na Caixa de Busca*/
 .lista{
     height: 25px;
     position: absolute;
+    right: 610px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -24,44 +37,104 @@ header{
 .buscar{
     width: 25px;
     position: absolute;
-    left: 10px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-input{
-  width: 600px;
-  padding: 25px;
-  border: none;
-  border-radius: 45px;
-  background-color: #FFD8B2;
+/*Input(para coletar as pesquisas do usuário*/
+input {
+    flex: 1;
+    margin-left: 15px;          
+    width: 90%;
+    border: none;
+    outline: none;
+    background: transparent
 }
 
-input::placeholder {
-  margin-right: 20px;
-  color: #db764b; 
-  font-size: 15px;
+/*Texto de prévia presente no input*/
+input::placeholder{
+    font-size: 16px;
+    color: #993A1B;
 }
 
+/*navbar*/
+ul{
+  display: flex;
+  flex-direction:row; 
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+/*links presentes no navbar*/
+.home{
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;
+    color: #993A1B;
+    text-decoration: underline;
+}
+
+.home img{
+     width: 28px; 
+     height: auto;
+}
+
+.detalhes{
+    cursor: pointer;
+    color: #993A1B;
+}
+
+.detalhes:hover{
+    transition: 0.3s ease;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.navbar button{
+    border: none;
+    width: 200px;
+    padding:14px;
+    color: aliceblue;
+    font-size: 24px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #BE6139;
+}
+
+.navbar button:hover{
+     transition: 0.3s ease;
+     background-color: #924423;
+}
+
+/*Banner principal do site*/
 .banner{
     background-image: url('img/Design\ sem\ nome\ \(5\)\ 1.png');
-    background-size: cover; /* Faz a imagem cobrir todo o espaço [8] */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
     width: 100%;
-    height: 250px; /* Altura do retângulo */
+    height: 250px;
     padding-top: 100px;
     display: flex;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: row;
+    align-items: center; 
+    justify-content: flex-start; 
 }
 
+/*Texto presente no banner*/
 .banner-text{
-     align-items: flex-start;
+     display: flex;
+     align-self: center;
+     margin-left: 20px;
+     text-align: left;
+     max-width: 500px;
      font-size: 39px;
      color: aliceblue;
 }
 
+/*Grade para o posicionamento dos card de cada quilombo*/
 .main-content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -71,13 +144,16 @@ input::placeholder {
     align-items: center;   
 }
 
+/*Imagens presentes nos cards*/
 .card img{
     display: flex;
     justify-content: center; 
     align-items: center; 
 }
 
+/*Cards dos quilombos*/
 .card{
+    left: 190px;
     width: 450px;
     height: 450px;
     margin-top: 50px;
@@ -85,14 +161,24 @@ input::placeholder {
     border-radius: 8px;
     background-color: rgb(252, 250, 245);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+    flex-direction: row;
 
 p, strong{
    padding: 10px;
 }
 
-.icon{
-    display: flex;
-    justify-content: flex-end; 
-    align-items: flex-end; 
+/*Icone de acesso*/
+.acessar{
+  display: block; 
+  margin-left: auto;
+  margin-right: 10px;
 }
 }
+
+.card:hover{
+    transition: 0.3s ease;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
