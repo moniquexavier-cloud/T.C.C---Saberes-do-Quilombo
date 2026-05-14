@@ -3,173 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
-    </style>
     <title>Saberes do Quilombo</title>
-    <link rel="stylesheet" href="Tela_Inicial.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- Cabeçalho -->
 <header>
-<section class="Logo">
-<img src="img/Saberes do (1) 1.png" alt="logo">
-</section>
+        <section class="header-container1">
 
-<div class="search-box">
-<img  class="lista"   src="img.icons/Icon (1).png">
-<input type="text" placeholder="Busque um Quilombo" autofocus>
-<img class= "buscar" src="img.icons/icon.png">
-</div>
+                <img src="Images/logo_site.png" alt="Logo Saberes do Quilombo" class="logo">
+        
+                <form>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="..." class="search">
+                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                    </div>
+                </form>
+        </section>
 
-<div class="navbar">
-    <nav>
-        <ul>
-         <div class="home">
-         <img src="img.icons/home.png">
-         <a>Home</a>
-         </div>
+        <section class="header-container2">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="tela-inicial.html" class="active">
+                        <img src="Images/house-regular-full.svg" alt="Menu-principal" class="home-icon"> Home
+                        </a>
+                    </li>
+                    <li><a href="detalhes.html">Detalhes</a></li>
+                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                </ul>
+            </nav>
+        </section>
 
-         <div class="detalhes">
-         <a>Detalhes</a>
-         </div>
-
-         <button>
-         <a>Relate Aqui</a>
-         </button>
-        </ul>
-    </nav>
-</div>
-</header>
-
-<!--Conteúdo do Site-->
+    </header>
 
 <!--Banner e Título do Site-->
-<section class="banner">
-<div class="banner-text">Descubra os principais quilombos presentes na região</div>
-</section>
+    <section class="banner">
+        <h1>Descubra os principais quilombos presentes na região</h1>
+    </section>
 
 <!--Conteúdo Principal do Site-->
-<section class="main-content">
+    <section class="main-content">
 
 <!--Card de cada quilombo-->
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<a href="pagina2.html" class="card-link"></a>
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img  class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-<div class="card">
-<img src="img/images.jpg">
-<strong>NOMI</strong>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit, sed do eiusmod tempor incididunt ut labore et 
-dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-a commodo consequat. Duis aute irure dolor in 
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-mollit anim id est laborum</p>
-<img class="acessar" src="img.icons/Arrow right-circle (1).png">
-</div>
-
-
-</section>
-
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    <a href="conteudo.html" class="card-link">
+        <div class="card">
+            <img src="Images/placeholder-image.jpg" class="placeholder-image">
+                <strong>NOMI</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                a commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum</p>
+            <img class="acessar" src="Images/Arrow right-circle.png">
+        </div>
+    </a>
+    
+    </section>
 
 </body>
 </html>
