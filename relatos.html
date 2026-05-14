@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saberes do Quilombo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+        <section class="header-container1">
+
+                <img src="Images/logo_site.png" alt="Logo Saberes do Quilombo" class="logo">
+        
+                <form>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="..." class="search">
+                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                    </div>
+                </form>
+        </section>
+
+        <section class="header-container2">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="tela-inicial.html">
+                        <img src="Images/house-regular-full.svg" alt="Menu-principal" class="home-icon"> Home
+                        </a>
+                    </li>
+                    <li><a href="detalhes.html">Detalhes</a></li>
+                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                </ul>
+            </nav>
+        </section>
+
+    </header>
+<!--Conteúdo do Site-->
+
+<!--Banner e Título do Site-->
+    <section class="banner">
+        <section class="banner-container1">
+            <img src="" alt="">
+            <h1>Central de Relatos</h1>
+            <p>Espaço para compartilhar histórias, vivências e demandas das comunidades quilombolas.</p>
+         </section>
+    </section>
+
+    <main class="content-container">
+        
+        <section class="relatos-list">
+            <h2>Relatos do quilombo</h2>
+            <div class="relato-card">
+                <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="relato-card">
+                <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="relato-card">
+                <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+        <aside class="form-sidebar">
+            <h3>Contato</h3>
+            <form id="form-relato">
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="email" placeholder="..." required>
+                </div>
+                <div class="input-group">
+                    <label>Quilombo</label>
+                    <input type="text" id="quilombo-nome" placeholder="..." required>
+                </div>
+                <div class="input-group">
+                    <label>Relato</label>
+                    <textarea id="relato-texto" placeholder="..." rows="5" required></textarea>
+                </div>
+                <button type="submit" id="btn-enviar">Enviar</button>
+            </form>
+            <p id="feedback-msg" style="display:none; margin-top:10px; color: green; font-weight: bold;"></p>
+        </aside>
+    </main>
+
+    <script src="relatos.js"></script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+body{
+    font-family: 'Kelly Slab', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FDF5E6;
+}
+
+/*Header*/
+header{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      width: auto;
+      height: 60px;
+      gap: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      background-color: #DD7D39;
+}
+
+.header-container1{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+}
+
+.header-container2{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+}
+
+.logo{
+    width: 80px;
+    height: 60px;
+}
+
+/*Caixa de Busca do Header*/
+.search-bar{
+      display: flex;
+      align-items: center;
+
+      width: 556px;
+      height: 40px;
+      padding: 0px 8px;
+      gap: 4px;
+
+      background-color: #FFD8B2;
+      border-radius: 25px;
+  
+      transition: all 0.2s ease;
+}
+
+/*Input(para coletar as pesquisas do usuário)*/
+.search-bar input{
+      flex: 1;
+      padding-left: 14px;
+
+      border: none;
+      outline: none;
+      background: transparent;
+
+      color: white;
+      font-size: 14px;
+}
+
+input::placeholder {
+  color: #db764b; 
+  font-size: 18px;
+}
+
+/*Icones Presentes*/
+.home-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.search-icon {
+    padding: 8px;
+}
+
+/*navbar*/
+.header-container2 ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-container2 ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 0;
+    font-size: 20px;
+    color: #993A1B;
+    text-decoration: none;
+}
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+nav a:active {
+  text-decoration: underline;
+}
+
+.header-container2 ul li:hover a,
+nav a:hover {
+    transition: 0.3s ease;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.button-like{
+    padding: 15px;
+
+    font-size: 20px;
+    background-color: #BE6139;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.button-like:hover{
+     transition: 0.3s ease;
+     background-color: #924423;
+}
+
+/*Banner principal do site*/
+.banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: auto;
+    height: 252px;
+    padding: 0 10px;
+    
+    background-color: #993A1B;
+}
+
+.banner-container1 h1,
+.banner-container1 p {
+    margin: 0;
+}
+
+
+h1{
+    width: 668px;
+    height: 92px;
+    padding-left: 20px;
+
+    font-size: 48px;
+    color: white;
+    font-weight: normal;
+}
+
+.banner p{
+    width: 752px;
+    height: 100px;
+
+    color: white;
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.banner-container1{
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-container2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+
+    gap: 10px;
+}
+
+.contato{
+    width: 375px;
+    height: 60px;
+
+    background-color: #DD7D39;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    
+    font-family:'Kelly Slab', serif; 
+}
+
+h3{
+    font-size: 24px;
+    color: white;
+}
+
+/*Layout conteúdo*/
+
+main{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+}
+
+h2{
+    font-size: 34px;
+    color: black;
+    padding-left: 20px;
+}
+
+main p{
+    color: black;
+    font-size: 25px;
+    padding-bottom: 100px;
+    margin-top: auto;
+
+    width: 740px;
+    height: 230px;
+    padding: 0 20px;
+}
+
+.image{
+    width: 531px;
+    height: 577px;
+    margin-right: 10px;
+
+    border-radius: 20px;
+    background-color: #d9d9d9;
+    
+}
+
+/*Grade para o posicionamento dos card de cada quilombo*/
+.main-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center; 
+    align-items: center;
+   
+    padding: 10px;
+}
+  
+/*Imagens presentes nos cards*/
+.card img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+/*Cards dos quilombos*/
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 395px;
+    height: 506px;
+    margin-top: 50px;
+    padding: 5px;
+    
+    border-radius: 15px;
+    background-color: #fdfaf57a;
+    box-shadow: 0 6px 6px 1px rgb(0, 0, 0, 0.25);
+}
+
+.card p{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.card strong{
+     display: flex;
+     flex-direction: column;
+     align-self: flex-start;
+     margin-top: 15px;
+     padding-left: 15px;
+     padding-right: 15px;
+     font-size: 24px;
+     font-weight: normal;
+}
+
+/*Icone de acesso*/
+.acessar{
+  display: block; 
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.card:hover{
+    transition: 0.3s ease;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.placeholder-image {
+    width: 350px;
+    height: 230px;
+    border: 1px solid #BE6139;
+    border-radius: 15px;
+}
+
+.card-link {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}
+
+.card-link strong,
+.card-link p {
+    color: #000;
+}
+
+/* Layout Detalhes*/
+    h2.cartao-title{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-content: space-around;
+
+        font-size: 25px;
+        color: black;
+        margin: 0;
+
+    }
+
+    .cartao{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    /*cards Referencial teorico e localidades*/
+    .cartao-container1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    /*cards de leis e habilidades*/
+    .cartao-container2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 40px;
+    }
+    .referencial_teorico, .localidades{
+        width: 400px;
+        height: 550px;
+        border-radius: 10px;
+        background-color: #ece0d2;
+    }
+    .leis, .habilidades_tecnicas {
+        width: 310px;
+        height: 73px;
+        border-radius: 10px;
+        background-color: #ece0d2;  
+    }
+
+/* Layout Relatos */
+.content-container {
+    display: flex;
+    flex-direction: row;
+
+    padding: 40px 10%;
+    gap: 30px;
+}
+
+.relatos-list { flex: 2; }
+
+.form-sidebar {
+    flex: 1;
+    background: #ece0d2; 
+    padding: 30px;
+    border-radius: 25px; 
+    height: fit-content;
+}
+
+.form-sidebar h3 {
+    text-align: center; 
+    margin-bottom: 20px;
+    color: #41302a;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+/* Cards de Relatos */
+.relato-card {
+    height: 150px;
+    background: #ece0d2; 
+    padding: 25px;
+    border-radius: 20px; 
+    margin-bottom: 20px;
+    border: 1px solid rgb(221, 209, 201)6;
+    color: #41302a;
+    line-height: 1.5;
+}
+
+/* Formulário */
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2C3E50; }
+
+.input-group input, 
+.input-group textarea {
+    width: 500px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 15px; 
+    background: #FDF5E6; 
+    margin-top: 5px;
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+button#btn-enviar {
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    padding: 14px;
+    background-color: #41302a; /* Azul escuro do Figma */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button#btn-enviar:hover {
+    background-color: #1A252F;
+}
