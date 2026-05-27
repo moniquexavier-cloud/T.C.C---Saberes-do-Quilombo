@@ -462,3 +462,11 @@ button#btn-enviar {
 button#btn-enviar:hover {
     background-color: #1A252F;
 }
+
+.acessibilidade {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
