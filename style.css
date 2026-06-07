@@ -272,14 +272,14 @@ main p{
     justify-content: center;
 
 
-    width: 395px;
-    height: 506px;
+    width: 495px;
+    height: 526px;
     margin-top: 50px;
     padding: 5px;
     
     border-radius: 15px;
     background-color: #fdfaf57a;
-    box-shadow: 0 6px 6px 1px rgb(0, 0, 0, 0.25);
+    box-shadow: 0 6px 6px 1px rgba(105, 32, 3, 0.25);
 }
 
 .card p{
@@ -316,8 +316,8 @@ main p{
 }
 
 .placeholder-image {
-    width: 350px;
-    height: 230px;
+    width: 450px;
+    height: 280px;
     border: 1px solid #BE6139;
     border-radius: 15px;
 }
