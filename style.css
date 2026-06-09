@@ -395,6 +395,12 @@ main p{
         background-color: #ece0d2;  
     }
 
+/*footer*/
+    footer{
+        background-color: #993A1B;
+        margin-top: 200px;
+        height: 200px;}
+
 /* Layout Relatos */
 .content-container {
     display: flex;
