@@ -232,9 +232,10 @@ main p{
     margin-top: auto;
 
     width: 740px;
-    height: 230px;
+    height: auto;
     padding: 0 20px;
 }
+
 
 .image{
     width: 531px;
@@ -245,7 +246,6 @@ main p{
     background-color: #d9d9d9;
     
 }
-
 /*Grade para o posicionamento dos card de cada quilombo*/
 .main-content{
     display: grid;
