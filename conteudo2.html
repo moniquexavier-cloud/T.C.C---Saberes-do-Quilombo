@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -99,17 +101,53 @@
 
             <div class="content">
                 <h2>Problemas enfrentados</h2>
-                <p>
-                    Hoje, o Quingoma abriga cerca de 3.200 a 4.800 pessoas e 650 famílias nativas. No entanto, a comunidade enfrenta intensas ameaças na atualidade, 
-                    A luta principal hoje das famílias remanescentes gira em torno da garantia de posse de sua terra, 
-                    preservação do meio ambiente e defesa do seu modo de vida contra propostas de desapropriação e apagamento histórico.
-                    Especulação Imobiliária: O avanço da expansão urbana, rodovias e grandes empreendimentos imobiliários cerca o quilombo. 
-                    Danos Ambientais: A comunidade sofre com injustiças ambientais, como a construção de conjuntos habitacionais próximos 
-                    e lixões que degradam partes históricas do rio e manguezais. 
-                    Regularização Fundiária: Apesar do reconhecimento oficial, o processo de titulação e demarcação de terras junto ao 
-                    INCRA está paralisado há anos.
-                </p>
-            </div>
+
+                 <p>Os principais problemas enfrentados pelo quilombo envolvem:</p>
+
+                   <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Ausência de Titulação Definitiva: :
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Apesar de possuir a certidão de autodefinição</strong>
+        <br>pela Fundação Cultural Palmares desde 2013, 
+        <br>a demora e a paralisação do processo de demarcação fundiária 
+        <br>deixam a região vulnerável a invasões.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Ameaça Ambiental e Degradação:
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong> O Desmatamento de faixas de Mata Atlântica </strong> sofre com a escassez de saneamento básico
+        <br> e dificuldades no acesso à água tratada e de qualidade.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Especulação Imobiliária e Loteamentos:
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Empreendimentos </strong>avançam sobre áreas pleiteadas
+        <br>pela comunidade junto ao Incra, ameaçando rios e áreas sagradas
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
         </section>
 
