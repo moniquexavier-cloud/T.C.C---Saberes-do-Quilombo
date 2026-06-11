@@ -15,7 +15,7 @@ Esse projeto tem como objetivo catalogar os diferentes quilombos presentes na re
 - **Navegação:** Links funcionais entre Tela-inicial, Página de Detalhes e Página de relatos.
 
 ## Como Executar o Projeto
-1.Baixe o projeto ou clone este repositório usando git clone <seu-link>.
+1.Baixe o projeto ou clone este repositório usando git clone <https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git>.
 
 2.Acesse a pasta do projeto.
 
