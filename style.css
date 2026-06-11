@@ -237,6 +237,28 @@ main p{
 }
 
 
+.accordion {
+    padding-left: 20px;
+    --bs-accordion-btn-bg: #ca5e3a;
+    --bs-accordion-btn-color:#ffffff;
+    --bs-accordion-active-bg:#993A1B;
+    --bs-accordion-active-color:#ffffff;
+    --bs-accordion-bg:#993A1B;
+    --bs-accordion-color:#ffffff;
+}
+
+.accordion-button{
+      margin: none;
+}
+
+.accordion-body{
+    margin-left: 20px;
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
 .image{
     width: 531px;
     height: 577px;
@@ -355,7 +377,7 @@ main p{
         justify-content: center;
         align-items: center;
 
-        color:#d9d9d9;
+        color:#ebebeb;
         font-size: 18px;
     }
 
