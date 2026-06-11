@@ -6,10 +6,19 @@ Esse projeto tem como objetivo catalogar os diferentes quilombos presentes na re
 ## Tecnologias Utilizadas
 - HTML5
 - CSS3
-- Javascript (vanilla/framework)
+- Javascript (Bootstrap/framework)
 
-  ## Funcionalidades
-  - **tela-inicial:** tela inicial com uma lista de cards com uma imagem e uma breve descrição sobre o quilombo, clicando nele haverá uma série de informações sobre o quilombo.
-  - **Página de Detalhes:** referencial teórico utilizado, leis de reconhecimento territorial, habilidades técnicas utilizadas e todas as localidades presentes até o momento.
-  - **Página de Relatos:** uma página com registro, onde é possível os próprios usuários relatarem situações de conflitos em suas regiões.
-  - **Navegação:** Links funcionais entre Tela-inicial, Página de Detalhes e Página de relatos.
+## Funcionalidades
+- **tela-inicial:** tela inicial com uma lista de cards com uma imagem e uma breve descrição sobre o quilombo, clicando nele haverá uma série de informações sobre o quilombo.
+- **Página de Detalhes:** referencial teórico utilizado, leis de reconhecimento territorial, habilidades técnicas utilizadas e todas as localidades presentes até o momento.
+- **Página de Relatos:** uma página com registro, onde é possível os próprios usuários relatarem situações de conflitos em suas regiões.
+- **Navegação:** Links funcionais entre Tela-inicial, Página de Detalhes e Página de relatos.
+
+## Como Executar o Projeto
+1.Baixe o projeto ou clone este repositório usando git clone <seu-link>.
+
+2.Acesse a pasta do projeto.
+
+3.Dê dois cliques no arquivo index.html
+
+4.O projeto abrirá automaticamente no navegador padrão.
