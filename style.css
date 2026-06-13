@@ -369,6 +369,8 @@ main p{
         background-color: #993A1B;
         margin-top: 200px;
         padding: 5px;
+
+        width: auto;
     }
 
     footer p{
@@ -428,8 +430,8 @@ main p{
         justify-content: flex-start;
 
 
-        width: 450px;
-        height: 530px;
+        width: 495px;
+        height: 700px;
         padding: 10px;
 
 
@@ -444,7 +446,7 @@ main p{
 
 
         width: auto;
-        height: 550px;
+        height: 700px;
         gap: 30px;
         border-radius: 10px;
     }
