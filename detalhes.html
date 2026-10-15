@@ -13,17 +13,39 @@
 </head>
 
 <body>
+    <script src="search.js"></script>
 <!-- Cabeçalho -->
     <header>
         <section class="header-container1">
 
                 <img src="Images/logo_site.png" alt="Logo do site: 'Saberes do Quilombo'" class="logo">
         
-                <form id="search-form">
+                <form id="search-form" role="search" action="resultados.html" method="get">
+                    <label for="search" class="visually-hidden">
+                        Pesquisar no site
+                    </label>
+
                     <div class="search-bar">
-                        <label for="search" class="acessibilidade">Barra de pesquisa</label>
-                        <input type="text" id="search" placeholder="..." class="search">
-                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                        <input
+                            type="search"
+                            id="search"
+                            name="q"
+                            class="search"
+                            placeholder="Pesquisar..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="search-button"
+                            aria-label="Pesquisar"
+                        >
+                            <img
+                                src="Images/search-icon.svg"
+                                alt=""
+                                aria-hidden="true"
+                            >
+                        </button>
                     </div>
                 </form>
         </section>
@@ -37,7 +59,7 @@
                         </a>
                     </li>
                     <li><a href="detalhes.html" class="active">Detalhes</a></li>
-                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                    <li><a href="relatos.html" class="button-like">Relatos</a></li>
                 </ul>
             </nav>
         </section>
@@ -126,10 +148,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>Título</strong> texto,
-                    <br>texto,
-                    <br>texto,
-                    <br>texto.
+                    <strong>Artigo 68 do Ato das Disposições Transitórias</strong>
                 </div>
                 </div>
             </div>
@@ -141,8 +160,7 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>Título</strong> texto
-                    <br> texto.
+                    <strong>Artigo 215</strong>
                 </div>
                 </div>
             </div>
@@ -154,8 +172,7 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>Título</strong> texto
-                    <br> texto.
+                    <strong>Artigo 216</strong> 
                 </div>
                 </div>
             </div>
