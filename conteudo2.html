@@ -13,17 +13,39 @@
 </head>
 
 <body>
+  <script src="search.js"></script>
 <!-- Cabeçalho -->
     <header>
         <section class="header-container1">
 
                 <img src="Images/logo_site.png" alt="Logo do site: 'Saberes do Quilombo'" class="logo">
         
-                <form id="search-form">
+                <form id="search-form" role="search" action="resultados.html" method="get">
+                    <label for="search" class="visually-hidden">
+                        Pesquisar no site
+                    </label>
+
                     <div class="search-bar">
-                        <label for="search" class="acessibilidade">Barra de pesquisa</label>
-                        <input type="text" id="search" placeholder="..." class="search">
-                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                        <input
+                            type="search"
+                            id="search"
+                            name="q"
+                            class="search"
+                            placeholder="Pesquisar..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="search-button"
+                            aria-label="Pesquisar"
+                        >
+                            <img
+                                src="Images/search-icon.svg"
+                                alt=""
+                                aria-hidden="true"
+                            >
+                        </button>
                     </div>
                 </form>
         </section>
@@ -37,7 +59,7 @@
                         </a>
                     </li>
                     <li><a href="detalhes.html">Detalhes</a></li>
-                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                    <li><a href="relatos.html" class="button-like">Relatos</a></li>
                 </ul>
             </nav>
         </section>
@@ -57,11 +79,26 @@
             <button type="" class="contato">Contato se possível</button>
         </section>
     </div>
+<!-- Conteúdo do Site -->
+
+<section class="main-container">
+
+<section class="sumario">
+     <h2>Sumário</h2>
+  <ul>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#modo de vida">Modo de Vida</a></li>
+    <li><a href="#cultura">Cultura</a></li>
+    <li><a href="#questoes">Questões Enfrentadas</a></li>
+  </ul>
+</section>
 
     <main>
         <section class="conteúdo">
-            <div class="content">
+
+            <div class="info" id="historia">
                 <h2>História</h2>
+                <img src="Images/História - Quingoma.jpg" alt="Foto representando a história do Quilombo Quingoma" class="conteudo-img">
                 <p>
                     O Quilombo Quingoma é um dos territórios quilombolas mais antigos do Brasil, com registros de ocupação desde 1569, a história oral da comunidade conta que os ancestrais foram capturados na costa leste da África e trazidos nos primeiros navios negreiros que chegaram à costa da Bahia, após naufrágios ou tentativas fracassadas de escravidão nas primeiras fazendas, os negros escravizados organizaram uma fuga pelas matas fechadas, eles seguiram o manguezal pelas margens do Rio Joanes, adentrando o território que hoje é o Quingoma, O povo que se formou ali era composto por africanos e, posteriormente, por seus descendentes que se misturaram com indígenas da região.
                     Em 2013, o local foi reconhecido como território remanescente de quilombo pela Fundação Cultural Palmares (FCP). 
@@ -70,8 +107,9 @@
                 </p>
             </div>
     
-            <div class="content">
+            <div class="info" id="modo de vida">
                 <h2>Modo de Vida</h2>
+                <img src="Images/Modo de Vida - Quingoma.jpg" alt="Foto representando o modo de vida do Quilombo Quingoma" class="conteudo-img">
                 <p>
                       A comunidade mantém hábitos tradicionais, extrativistas e rurais além de ser fortemente marcado por lideranças femininas,
                       com associações organizadas para tomada de decisões coletivas.
@@ -86,8 +124,9 @@
                 </p>
             </div>
 
-            <div class="content">
+            <div class="info" id="cultura">
                 <h2>Cultura</h2>
+                <img src="Images/Cultura - Quingoma.jpg" alt="Foto representando a cultura do Quilombo Quingoma" class="conteudo-img">
                 <p>
                     O território possui diversas manifestações tradicionais, com destaque para o Samba de Roda, Samba Duro, Samba no Prato, Capoeira, Lundu e Maculelê.
                     A comunidade defende a máxima de que o "território é extensão do corpo". As práticas de plantio, coleta e preservação ambiental 
@@ -99,12 +138,12 @@
                 </p>
             </div>
 
-            <div class="content">
+            <div class="info"id="questoes">
                 <h2>Problemas enfrentados</h2>
 
                  <p>Os principais problemas enfrentados pelo quilombo envolvem:</p>
 
-                   <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -149,13 +188,9 @@
 </div>
 </div>
 
-        </section>
-
-        <section class="image">
-            <img src="" alt="">
-        </section>
-
-    </main>
+</section>
+</section>
+</main>
     
     <footer>
         <p>
@@ -163,7 +198,7 @@
         </p>
         
         <p>
-        Designed by [nossa marca qua a gente ainda prescisa ver] 2026©
+        Designed by DocumentaHistória 2026©
         </p>
     </footer>
 
