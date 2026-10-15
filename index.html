@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <script src="search.js"></script>
 
 <!-- Cabeçalho -->
 <header>
@@ -18,11 +19,32 @@
 
                 <img src="Images/logo_site.png" alt="Logo do site: 'Saberes do Quilombo'" class="logo">
         
-                <form id="search-form">
+                <form id="search-form" role="search" action="resultados.html" method="get">
+                    <label for="search" class="visually-hidden">
+                        Pesquisar no site
+                    </label>
+
                     <div class="search-bar">
-                        <label for="search" class="acessibilidade">Barra de pesquisa</label>
-                        <input type="text" id="search" placeholder="..." class="search">
-                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                        <input
+                            type="search"
+                            id="search"
+                            name="q"
+                            class="search"
+                            placeholder="Pesquisar..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="search-button"
+                            aria-label="Pesquisar"
+                        >
+                            <img
+                                src="Images/search-icon.svg"
+                                alt=""
+                                aria-hidden="true"
+                            >
+                        </button>
                     </div>
                 </form>
         </section>
@@ -36,7 +58,7 @@
                         </a>
                     </li>
                     <li><a href="detalhes.html">Detalhes</a></li>
-                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                    <li><a href="relatos.html" class="button-like">Relatos</a></li>
                 </ul>
             </nav>
         </section>
