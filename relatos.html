@@ -11,17 +11,39 @@
 </head>
 
 <body>
+    <script src="search.js"></script>
 
 <header>
         <section class="header-container1">
 
                 <img src="Images/logo_site.png" alt="Logo do site: 'Saberes do Quilombo'" class="logo">
         
-                <form id="search-form">
+                <form id="search-form" role="search" action="resultados.html" method="get">
+                    <label for="search" class="visually-hidden">
+                        Pesquisar no site
+                    </label>
+
                     <div class="search-bar">
-                        <label for="search" class="acessibilidade">Barra de pesquisa</label>
-                        <input type="text" id="search" placeholder="..." class="search">
-                        <img src="Images/search-icon.svg" alt="Ícone de busca" class="search-icon">
+                        <input
+                            type="search"
+                            id="search"
+                            name="q"
+                            class="search"
+                            placeholder="Pesquisar..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="search-button"
+                            aria-label="Pesquisar"
+                        >
+                            <img
+                                src="Images/search-icon.svg"
+                                alt=""
+                                aria-hidden="true"
+                            >
+                        </button>
                     </div>
                 </form>
         </section>
@@ -35,7 +57,7 @@
                         </a>
                     </li>
                     <li><a href="detalhes.html">Detalhes</a></li>
-                    <li><a href="relatos.html" class="button-like">Relate Aqui</a></li>
+                    <li><a href="relatos.html" class="button-like">Relatos</a></li>
                 </ul>
             </nav>
         </section>
@@ -67,25 +89,31 @@
             </div>
         </section>
 
-        <aside class="form-sidebar">
-            <h3>Contato</h3>
-            <form id="form-relato">
-                <div class="input-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="..." required>
-                </div>
-                <div class="input-group">
-                    <label for="quilombo-nome">Quilombo</label>
-                    <input type="text" id="quilombo-nome" placeholder="..." required>
-                </div>
-                <div class="input-group">
-                    <label for="relato-texto">Relato</label>
-                    <textarea id="relato-texto" placeholder="..." rows="5" required></textarea>
-                </div>
-                <button type="submit" id="btn-enviar">Enviar</button>
-            </form>
-            <p id="feedback-msg" style="display:none; margin-top:10px; color: green; font-weight: bold;"></p>
-        </aside>
+            <aside class="form-sidebar">
+                <h3>Contato</h3>
+                <form id="form-relato">
+                    <div class="campo-form">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="" required disabled>
+                        <span class="aviso-login">É necessário login para preencher este campo</span>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="quilombo-nome">Quilombo</label>
+                        <input type="text" id="quilombo-nome" placeholder="" required disabled>
+                        <span class="aviso-login">É necessário login para preencher este campo</span>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="relato-texto">Relato</label>
+                        <textarea id="relato-texto" placeholder="" rows="5" required disabled></textarea>
+                        <span class="aviso-login">É necessário login para preencher este campo</span>
+                    </div>
+
+                    <button type="submit" id="btn-enviar" disabled>Enviar</button>
+                </form>
+                <p id="feedback-msg" style="display:none; margin-top:10px; color: green; font-weight: bold;"></p>
+            </aside>
     </main>
 
     <script src="relatos.js"></script>
@@ -96,7 +124,7 @@
         </p>
         
         <p>
-        Designed by [nossa marca qua a gente ainda prescisa ver] 2026©
+        Designed by DocumentaHistória 2026©
         </p>
     </footer>
 
