@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa — Saberes do Quilombo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="search.js" defer></script>
+    <header>
+        <section class="header-container1">
+            <img src="Images/logo_site.png" alt="Logo do site: 'Saberes do Quilombo'" class="logo">
+            <form id="search-form" role="search" action="resultados.html" method="get">
+                <label for="search" class="visually-hidden">Pesquisar no site</label>
+                <div class="search-bar">
+                    <input type="search" id="search" name="q" class="search" placeholder="Pesquisar..." autocomplete="off">
+                    <button type="submit" class="search-button" aria-label="Pesquisar">
+                        <img src="Images/search-icon.svg" alt="" aria-hidden="true">
+                    </button>
+                </div>
+            </form>
+        </section>
+        <section class="header-container2">
+            <nav>
+                <ul>
+                    <li><a href="index.html"><img src="Images/house-regular-full.svg" alt="Menu principal" class="home-icon"> Home</a></li>
+                    <li><a href="detalhes.html">Detalhes</a></li>
+                    <li><a href="relatos.html" class="button-like">Relatos</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="search-page">
+        <h1>Resultados da pesquisa</h1>
+        <p id="search-message" aria-live="polite"></p>
+        <section id="search-results" class="main-content" aria-label="Resultados"></section>
+    </main>
+    <footer>
+        <p>Contatos: DocumentaHistoria@gmail.com</p>
+        <p>Designed by DocumentaHistória 2026©</p>
+    </footer>
+</body>
+</html>
