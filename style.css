@@ -728,45 +728,33 @@ button#btn-enviar:disabled {
     padding: 60px;   
 }
 
-.login-page {
+.pagina-login {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.login-page .login-container {
+.pagina-login .login-container {
     flex: 1;
 }
 
-.login-page footer {
+.pagina-login footer {
     margin-top: 0;
 }
 
-@media (max-width: 480px) {
-    .login-page header {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        padding: 8px 12px;
-    }
-
-    .login-page .header-container2 ul {
-        gap: 12px;
-    }
-}
-
 .login-card {
-  background-color: #FFC58C;
-  border: 4px solid #BE6139;
-  padding: 20px;
-  height: 400px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-  
- 
+     height: 400px;
+     width: 100%;
+     max-width: 400px;
+
+     margin: auto;
+     padding: 20px;
+
+     border: 4px solid #BE6139;
+     border-radius: 12px;
+     background-color: #FFC58C;
 }
+
 #form-login h3 {
   text-align: center;
   margin-bottom: 24px;
@@ -840,4 +828,421 @@ button#btn-enviar:disabled {
 .search-result a:focus {
     color: #ffffff;
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    /* These overrides apply when the viewport is 600px wide or narrower. */
+    /* Shared mobile header and footer */
+    header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px 14px;
+    }
+
+    .header-container1 {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .header-container1 form {
+        flex: 1;
+        /* Let the search form shrink instead of pushing the header wider. */
+        min-width: 0;
+    }
+
+    .logo {
+        /* Keep the logo at this size instead of letting flex shrink it. */
+        flex: 0 0 auto;
+        width: 64px;
+        height: 50px;
+        /* Fit the full logo inside its box without cropping it. */
+        object-fit: contain;
+    }
+
+    .search-bar {
+        width: 100%;
+        /* Include padding and borders within the declared width. */
+        box-sizing: border-box;
+    }
+
+    .header-container2,
+    .header-container2 nav {
+        width: 100%;
+    }
+
+    .header-container2 ul {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    nav a {
+        gap: 5px;
+        font-size: 16px;
+    }
+
+    .home-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .button-like,
+    .button-like-login {
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    footer {
+        height: auto;
+        margin-top: 24px;
+        padding: 12px 16px;
+    }
+
+    footer p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .pagina-login .header-container1 {
+        justify-content: center;
+    }
+
+    .pagina-login .header-container2 ul {
+        gap: 12px;
+    }
+
+    /* Homepage-specific mobile layout */
+    .pagina-inicial .banner {
+        min-height: 180px;
+        height: auto;
+        padding: 28px 20px;
+        box-sizing: border-box;
+    }
+
+    .pagina-inicial .banner h1 {
+        width: auto;
+        height: auto;
+        padding: 0;
+        /* clamp(min, preferred, max) bounds a responsive value; vw means viewport width. */
+        font-size: clamp(28px, 8vw, 38px);
+        line-height: 1.15;
+    }
+
+    .pagina-inicial .main-content {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 16px;
+    }
+
+    .pagina-inicial .card-link {
+        width: 100%;
+        max-width: 495px;
+    }
+
+    .pagina-inicial .card {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin-top: 0;
+        padding: 12px;
+    }
+
+    .pagina-inicial .card:hover {
+        transform: none;
+    }
+
+    .pagina-inicial .card-image {
+        width: 100%;
+        /* Scale the image height with the screen, but keep it within these limits. */
+        height: clamp(180px, 55vw, 280px);
+        /* Fill the image box while preserving the image's proportions. */
+        object-fit: cover;
+    }
+
+    .pagina-inicial .card strong {
+        margin-top: 12px;
+        padding: 0 4px;
+        font-size: 21px;
+    }
+
+    .pagina-inicial .card p {
+        padding: 0 4px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* Page-specific mobile layouts */
+    /* Each page class below is assigned to that page's <body> in its HTML. */
+    .pagina-detalhes .banner,
+    .pagina-conteudo .banner,
+    .pagina-relatos .banner {
+        /* Stack the banner's title, description, and contact area vertically. */
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 18px;
+        height: auto;
+        min-height: 0;
+        padding: 24px 20px;
+        box-sizing: border-box;
+    }
+
+    .pagina-detalhes .banner-container1,
+    .pagina-detalhes .banner-container2,
+    .pagina-conteudo .banner-container1,
+    .pagina-conteudo .banner-container2,
+    .pagina-relatos .banner-container1,
+    .pagina-relatos .banner-container2 {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .pagina-detalhes .banner h1,
+    .pagina-conteudo .banner h1,
+    .pagina-relatos .banner h1 {
+        width: auto;
+        height: auto;
+        padding: 0;
+        /* clamp(min, preferred, max) bounds a responsive value; vw means viewport width. */
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.15;
+    }
+
+    .pagina-detalhes .banner p,
+    .pagina-conteudo .banner p,
+    .pagina-relatos .banner p {
+        width: auto;
+        height: auto;
+        padding: 12px 0 0;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .pagina-detalhes .banner-container2,
+    .pagina-conteudo .banner-container2,
+    .pagina-relatos .banner-container2 {
+        align-items: stretch;
+    }
+
+    .pagina-detalhes .banner-container2 h3,
+    .pagina-conteudo .banner-container2 h3,
+    .pagina-relatos .banner-container2 h3 {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .pagina-detalhes .contato,
+    .pagina-conteudo .contato,
+    .pagina-relatos .contato {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 52px;
+        padding: 10px 14px;
+        font-size: 18px;
+        /* Break long contact text if it does not fit on one line. */
+        overflow-wrap: anywhere;
+    }
+
+    .pagina-conteudo .main-container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .pagina-conteudo .main-container > main,
+    .pagina-conteudo .sumario,
+    .pagina-conteudo .conteúdo {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .pagina-conteudo .sumario {
+        /* Return the summary to normal flow instead of sticking beside the article. */
+        position: static;
+        height: auto;
+        margin: 0;
+        padding: 16px;
+    }
+
+    .pagina-conteudo .conteúdo {
+        padding: 8px 0;
+    }
+
+    .pagina-conteudo .main-container img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        /* Resize article images to the available width without distorting them. */
+        object-fit: cover;
+    }
+
+    .pagina-conteudo .conteúdo h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .pagina-conteudo main p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .pagina-conteudo .accordion,
+    .pagina-detalhes .accordion {
+        padding-left: 0;
+    }
+
+    .pagina-conteudo .accordion-body,
+    .pagina-detalhes .accordion-body {
+        margin-left: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .pagina-detalhes .cartao {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 16px;
+    }
+
+    .pagina-detalhes .cartao-container {
+        width: 100%;
+        margin-top: 24px;
+        gap: 18px;
+    }
+
+    .pagina-detalhes h2.cartao-title {
+        justify-content: center;
+        font-size: 24px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .pagina-detalhes .referencial_teorico {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        height: auto;
+        gap: 16px;
+    }
+
+    .pagina-detalhes .cartao-referencial {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .pagina-detalhes .cartao-referencial ol {
+        padding-left: 24px;
+    }
+
+    .pagina-detalhes .cartao-referencial li {
+        /* Prevent long URLs or words from stretching the page wider. */
+        overflow-wrap: anywhere;
+    }
+
+    .pagina-relatos .content-container {
+        flex-direction: column;
+        padding: 24px 16px;
+        gap: 22px;
+    }
+
+    .pagina-relatos .relatos-list,
+    .pagina-relatos .form-sidebar {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pagina-relatos .form-sidebar {
+        padding: 20px;
+    }
+
+    .pagina-relatos .form-sidebar h3 {
+        font-size: 25px;
+    }
+
+    .pagina-relatos .relato-card {
+        box-sizing: border-box;
+        height: auto;
+        min-height: 0;
+        padding: 18px;
+        overflow-wrap: anywhere;
+    }
+
+    .pagina-resultados-pesquisa .search-page {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    .pagina-resultados-pesquisa .search-page h1 {
+        width: auto;
+        height: auto;
+        padding: 0;
+        color: #993A1B;
+        /* Bound the responsive heading size; vw means viewport width. */
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.15;
+    }
+
+    .pagina-resultados-pesquisa #search-results.main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 0;
+    }
+
+    .pagina-resultados-pesquisa .search-page .card-link {
+        width: 100%;
+        max-width: 495px;
+        align-self: center;
+    }
+
+    .pagina-resultados-pesquisa .search-page .card {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin-top: 0;
+        padding: 12px;
+    }
+
+    .pagina-resultados-pesquisa .search-page .card-image {
+        width: 100%;
+        /* Use a responsive height with minimum and maximum bounds. */
+        height: clamp(180px, 55vw, 280px);
+        object-fit: cover;
+    }
+
+    .pagina-resultados-pesquisa .search-page .card p {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 4px;
+    }
+
+    .pagina-login .login-container {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px 16px;
+    }
+
+    .pagina-login .login-card {
+        box-sizing: border-box;
+        height: auto;
+        min-height: 360px;
+        padding: 20px;
+    }
+
+    .pagina-login .button-login {
+        margin-top: 32px;
+        padding: 12px 24px;
+    }
+
 }
