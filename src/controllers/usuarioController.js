@@ -14,6 +14,9 @@ export const listarUsuarios = async (req, res) => {
   }
 };
 
+
+
+
 // Criar novos usuários
 export const criarUsuario = async (req, res) => {
   try {

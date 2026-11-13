@@ -9,4 +9,5 @@ export const getQuilomboFontes = async (req, res) => {
   }
 };
 
+export { getQuilomboFontes};
 
