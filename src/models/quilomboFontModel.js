@@ -1,26 +1,26 @@
 import mongoose from 'mongoose';
 
-// Model de quilombo Font Model
+// Model de Quilombo Font
 const quilomboFontSchema = new mongoose.Schema({
-    cartao_referencial_1: {
+  categoria: {
     type: String,
-    required: [true, 'A referência é obrigatória'],
+    required: [true, 'A categoria é obrigatória'],
+    enum: ['GERAL', 'CORDOARIA', 'QUINGOMA'],
+    uppercase: true,
     trim: true
-    },
-
-cartao_referencial_2: {
+  },
+  titulo: {
     type: String,
-    required: [true, 'A referência é obrigatória'],
+    required: [true, 'O título da referência é obrigatório'],
     trim: true
-    },
-
-cartao_referencial_3: {
+  },
+  url: {
     type: String,
-    required: [true, 'A referência é obrigatória'],
+    required: [true, 'O link (URL) é obrigatório'],
     trim: true
-    }
+  }
 }, {
-  timestamps: true 
+  timestamps: true
 });
 
-export default mongoose.model('quilomboFont',  quilomboFontSchema);
+export default mongoose.model('quilomboFont', quilomboFontSchema);

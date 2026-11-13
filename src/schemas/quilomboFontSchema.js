@@ -4,31 +4,27 @@ import { z } from 'zod';
 
 const quilomboFontesSchema = z.object({
 
-    cartao_referencial_1: z
-        .string({
-            required_error: "A referência é obrigatória",
-            invalid_type_error: "A referência deve ser um texto"
-        })
-        .min(10, "O texto deve ter no mínimo 10 caracteres")
-        .max(2000, "O texto deve ter no máximo 2000 caracteres"),
+categoria: z
+    .string({ required_error: 'A categoria é obrigatória' })
+    .trim()
+    .toUpperCase()
+    .pipe(
+      z.enum(['GERAL', 'CORDOARIA', 'QUINGOMA'], {
+        errorMap: () => ({ message: 'A categoria deve ser GERAL, CORDOARIA ou QUINGOMA' })
+      })
+    ),
 
-    cartao_referencial_2: z
-        .string({
-            required_error: "A referência é obrigatória",
-            invalid_type_error: "A referência deve ser um texto"
-        })
-        .min(10, "O texto deve ter no mínimo 10 caracteres")
-        .max(2000, "O texto deve ter no máximo 2000 caracteres"),
+  titulo: z
+    .string({ required_error: 'O título da referência é obrigatório' })
+    .trim()
+    .min(3, 'O título deve ter pelo menos 3 caracteres'),
 
-    cartao_referencial_3: z
-        .string({
-            required_error: "A referência é obrigatória",
-            invalid_type_error: "A referência deve ser um texto"
-        })
-        .min(10, "O texto deve ter no mínimo 10 caracteres")
-        .max(2000, "O texto deve ter no máximo 2000 caracteres")
-
+  url: z
+    .string({ required_error: 'O link (URL) é obrigatório' })
+    .trim()
+    .url('Insira uma URL válida (ex: https://...)')
 });
+
 
 // ===== Middleware genérico para aplicar o Zod nas requisições =====
 
