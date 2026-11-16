@@ -22,13 +22,11 @@ const usuarioSchema = new mongoose.Schema({
     enum: ['LIDER', 'ADMIN'],
     required: [true, 'O perfil (role) é obrigatório']
   },
-  quilombo_id: {
-    type: Number,
-    enum: [1, 2],
-    required: function () {
-      return this.role === 'LIDER';
-    }
-  }
+  id_quilombo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Quilombo',
+    required: function() { return this.role === 'LIDER'; }
+}
 }, {
   timestamps: true
 });

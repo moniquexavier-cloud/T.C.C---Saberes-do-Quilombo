@@ -1,5 +1,6 @@
 import { criarToken } from '../middleware/auth.js';
 import Usuario from '../models/usuariosModel.js';
+import Quilombo from '../models/quilomboModel.js';
 import { cadastroSchema, loginSchema } from '../schemas/UsuarioSchema.js';
 import bcrypt from 'bcryptjs';
 
@@ -14,9 +15,6 @@ export const listarUsuarios = async (req, res) => {
   }
 };
 
-
-
-
 // Criar novos usuários
 export const criarUsuario = async (req, res) => {
   try {
@@ -30,7 +28,7 @@ export const criarUsuario = async (req, res) => {
     }
 
 
-const { nome, email, senha, role, quilombo_id } = validation.data;
+const { nome, email, senha, role, id_quilombo } = validation.data;
 
 
 // 2. Verifica se o usuário já existe no banco
@@ -39,22 +37,28 @@ const { nome, email, senha, role, quilombo_id } = validation.data;
       return res.status(400).json({ message: "E-mail já cadastrado" });
     }
 
+// 3. Verifica se o quilombo existe no banco antes de criar o líder
+    if (role === 'LIDER' && id_quilombo) {
+      const quilomboExiste = await Quilombo.findById(id_quilombo);
+      if (!quilomboExiste) {
+        return res.status(404).json({ erro: 'Quilombo informado não encontrado.' });
+      }
+    }
 
-    // 3. Criptografa a senha
+
+    // 4. Criptografa a senha
     const salt = await bcrypt.genSalt(10);
     const hashedSenha = await bcrypt.hash(senha, salt);
 
 
-    // 4. Salva no MongoDB
+    // 5. Salva no MongoDB
     const novoUsuario = await Usuario.create({
       nome,
       email,
       senha: hashedSenha,
       role,
-      quilombo_id,
-      dataCriacao: new Date().toISOString()
+      id_quilombo
     });
-
 
 
 
@@ -65,7 +69,7 @@ return res.status(201).json({
         nome: novoUsuario.nome,
         email: novoUsuario.email,
         role: novoUsuario.role,
-        quilombo_id: novoUsuario.quilombo_id
+        id_quilombo: novoUsuario.id_quilombo
       }
     });
   } catch (error) {
@@ -91,7 +95,8 @@ export const loginAuth = async (req, res) => {
 
 
     // 2. Procura o usuário pelo e-mail no MongoDB (já vem em minúsculas e sem espaços pelo Zod)
-    const usuarioEncontrado = await Usuario.findOne({ email });
+    const usuarioEncontrado = await Usuario.findOne({ email })
+      .populate('id_quilombo', 'nome_do_quilombo');
 
 
 if (!usuarioEncontrado) {
@@ -115,6 +120,10 @@ if (!usuarioEncontrado) {
     // 4. Remove a senha antes de gerar o token
     const usuario = usuarioEncontrado.toObject();
     delete usuario.senha;
+
+    if (usuario.role === 'ADMIN') {
+      usuario.id_quilombo = null;
+    }
 
 
     const token = criarToken(usuario);

@@ -3,12 +3,6 @@ import { z } from 'zod';
 // ===== Schema para POST relato =====
 
 const criarRelatoSchema = z.object({
-
-    quilombo_id: z
-        .number()
-        .int()
-        .positive(),
-
     texto: z
         .string()
         .min(10, "O texto deve ter no mínimo 10 caracteres")
@@ -30,13 +24,9 @@ const editarRelatoSchema = z.object({
 // ===== Schema para ID do relato =====
 
 const idRelatoSchema = z.object({
-
-    id: z
-        .coerce
-        .number()
-        .int()
-        .positive()
-
+  id: z
+    .string()
+    .regex(/^[a-f\d]{24}$/i, 'ID de relato inválido.')
 });
 
 // ===== Schema para nome do quilombo na rota =====

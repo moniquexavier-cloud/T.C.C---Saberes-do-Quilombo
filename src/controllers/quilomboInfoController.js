@@ -1,6 +1,6 @@
 import QuilomboInfo from '../models/quilomboInfoModel.js';
 
-const getQuilomboInfo = async (req, res) => {
+export const getQuilomboInfo = async (req, res) => {
     try {
         const nomeParam = req.params.nome.trim();
        const info = await QuilomboInfo.findOne({
@@ -21,5 +21,3 @@ const getQuilomboInfo = async (req, res) => {
     });
   }
 };
-
-export { getQuilomboInfo };

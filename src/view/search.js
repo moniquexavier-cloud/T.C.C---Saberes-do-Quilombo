@@ -1,28 +1,11 @@
-const quilomboCards = [
-    {
-        title: "Quilombo da Cordoaria",
-        url: "conteudo1.html",
-        image: "Images/casa_farinha_cordoaria.png",
-        imageAlt: "Casa de farinha comunitária do Quilombo da Cordoaria",
-        description: "O quilombo faz parte das comunidades remanescentes de quilombos do século 19, criados por escravizados libertos que receberam essas terras por doação ou como pagamento. As primeiras famílias que habitaram a região foram as famílias Reis e Santana, possíveis trabalhadores de canavieiras que receberam autorização dos antigos proprietários para usufruírem da terra. Com 260 anos de formação..."
-    },
-    {
-        title: "Quilombo Quingoma",
-        url: "conteudo2.html",
-        image: "Images/local_quingoma.png",
-        imageAlt: "Localidade do Quilombo Quingoma",
-        description: "O Quilombo Quingoma é um dos territórios quilombolas mais antigos do Brasil, com registros de ocupação desde 1569. A história oral da comunidade conta que seus ancestrais foram capturados na costa leste da África e trazidos nos primeiros navios negreiros que chegaram à costa da Bahia..."
-    }
-];
-
 function normalizeText(text) {
-    return text
+    return String(text)
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLocaleLowerCase("pt-BR");
 }
 
-function renderSearchResults() {
+async function renderSearchResults() {
     const resultsContainer = document.getElementById("search-results");
     if (!resultsContainer) return;
 
@@ -34,41 +17,49 @@ function renderSearchResults() {
         return;
     }
 
-    const terms = normalizeText(query).split(/\s+/).filter(Boolean);
-    const results = quilomboCards.filter((page) => {
-        const searchableText = normalizeText(page.title);
-        return terms.every((term) => searchableText.includes(term));
-    });
+    try {
+        const cards = await window.api("/quilombos/cards");
+        const terms = normalizeText(query).split(/\s+/).filter(Boolean);
+        const results = cards.filter((quilombo) => {
+            const searchableText = normalizeText(`${quilombo.nome} ${quilombo.descricao}`);
+            return terms.every((term) => searchableText.includes(term));
+        });
 
-    message.textContent = results.length
-        ? `${results.length} resultado(s) para “${query}”.`
-        : `Nenhum resultado encontrado para “${query}”.`;
+        message.textContent = results.length
+            ? `${results.length} resultado(s) para “${query}”.`
+            : `Nenhum resultado encontrado para “${query}”.`;
+        resultsContainer.replaceChildren();
 
-    results.forEach((result) => {
-        const link = document.createElement("a");
-        link.className = "card-link";
-        link.href = result.url;
-        const card = document.createElement("div");
-        card.className = "card";
+        for (const quilombo of results) {
+            const link = document.createElement("a");
+            const card = document.createElement("div");
+            const image = document.createElement("img");
+            const title = document.createElement("strong");
+            const description = document.createElement("p");
+            const arrow = document.createElement("img");
 
-        const image = document.createElement("img");
-        image.src = result.image;
-        image.alt = result.imageAlt;
-        image.className = "card-image";
+            link.className = "card-link";
+            link.href = `conteudo1.html?nome=${encodeURIComponent(quilombo.nome)}`;
+            card.className = "card";
 
-        const title = document.createElement("strong");
-        title.textContent = result.title;
-        const description = document.createElement("p");
-        description.textContent = result.description;
-        const arrow = document.createElement("img");
-        arrow.src = "Images/Arrow right-circle.png";
-        arrow.alt = "";
-        arrow.className = "acessar";
+            image.src = window.resolverUrl(quilombo.foto);
+            image.alt = quilombo.nome;
+            image.className = "card-image";
 
-        card.append(image, title, description, arrow);
-        link.appendChild(card);
-        resultsContainer.appendChild(link);
-    });
+            title.textContent = quilombo.nome;
+            description.textContent = quilombo.descricao;
+
+            arrow.src = window.resolverUrl("../../images/Arrow right-circle.png");
+            arrow.alt = "";
+            arrow.className = "acessar";
+
+            card.append(image, title, description, arrow);
+            link.append(card);
+            resultsContainer.append(link);
+        }
+    } catch (error) {
+        message.textContent = error.message;
+    }
 }
 
 renderSearchResults();

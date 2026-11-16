@@ -1,10 +1,12 @@
+import quilomboCard from '../models/quilomboCardsModel.js';
+
 // Listar os cards do MongoDB (mantendo o filtro por ?nome= na URL)
-const getQuilomboCards = async (req, res) => {
+export const getQuilomboCards = async (req, res) => {
   try {
     const nome = req.query.nome?.trim();
 
     const filtro = nome ? { nome: { $regex: nome, $options: 'i' } } : {};
-    const cards = await getQuilomboCards.find(filtro);
+    const cards = await quilomboCard.find(filtro);
 
     return res.status(200).json(cards);
   } catch (error) {
@@ -14,5 +16,3 @@ const getQuilomboCards = async (req, res) => {
     });
   }
 };
-
-export { getQuilomboCards };

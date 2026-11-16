@@ -204,6 +204,16 @@ h1{
     font-weight: normal;
 }
 
+.resultados-text {
+    width: 668px;
+    height: 92px;
+    padding-left: 20px;
+
+    font-size: 48px;
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+}
+
 .banner p{
     width: 752px;
     height: 100px;
@@ -339,6 +349,153 @@ main p {
 
 .accordion-button::after {
     filter: brightness(0) invert(1);
+}
+
+@media (max-width: 1200px) {
+    .pagina-relatos .banner {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 18px;
+        height: auto;
+        min-height: 0;
+        padding: 24px 20px;
+        box-sizing: border-box;
+    }
+
+    .pagina-relatos .banner-container1,
+    .pagina-relatos .banner-container2 {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .pagina-relatos .banner h1,
+    .pagina-relatos .banner p {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .pagina-relatos .banner h1 {
+        padding: 0;
+        font-size: clamp(30px, 5vw, 48px);
+        line-height: 1.15;
+    }
+
+    .pagina-relatos .banner p {
+        padding: 12px 0 0;
+        font-size: clamp(18px, 2.4vw, 25px);
+        line-height: 1.5;
+    }
+
+    .pagina-relatos .banner-container2 {
+        align-items: stretch;
+    }
+
+    .pagina-relatos .banner-container2 h3 {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .pagina-relatos .contato {
+        width: 100%;
+        max-width: 375px;
+        height: auto;
+        min-height: 52px;
+        padding: 10px 14px;
+        font-size: 18px;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 1100px) {
+    header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px 14px;
+    }
+
+    .header-container1 {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+        gap: 12px;
+    }
+
+    .header-container1 form {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .header-container2,
+    .header-container2 nav {
+        width: 100%;
+    }
+
+    .header-container2 ul {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 1100px) {
+    .pagina-conteudo .main-container {
+        box-sizing: border-box;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .pagina-conteudo .sumario,
+    .pagina-conteudo .conteúdo {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .pagina-conteudo .sumario {
+        position: static;
+        height: auto;
+        margin: 0;
+        padding: 16px;
+    }
+
+    .pagina-conteudo .conteúdo {
+        padding: 8px 0;
+    }
+
+    .pagina-conteudo .main-container img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .pagina-relatos .content-container {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px clamp(16px, 5vw, 40px);
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .pagina-relatos .relatos-list,
+    .pagina-relatos .form-sidebar {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+    }
 }
 
 .image{
@@ -601,15 +758,42 @@ main p {
 }
 
 /* Cards de Relatos */
+ [hidden] {
+    display: none !important;
+}
+
 .relato-card {
-    height: 150px;
+    box-sizing: border-box;
+    min-height: 200px;
+    overflow-wrap: anywhere;
     background: #ece0d2; 
     padding: 25px;
     border-radius: 20px; 
     margin-bottom: 20px;
-    border: 1px solid rgb(221, 209, 201)6;
+    border: 1px solid rgb(221, 209, 201);
     color: #41302a;
     line-height: 1.5;
+}
+
+.relato-card h3 {
+    color: #41302a;
+}
+
+.relato-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.relato-actions button {
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 10px;
+    background: #41302a;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
 }
 
 /* Formulário */
@@ -1044,41 +1228,6 @@ button#btn-enviar:disabled {
         font-size: 18px;
         /* Break long contact text if it does not fit on one line. */
         overflow-wrap: anywhere;
-    }
-
-    .pagina-conteudo .main-container {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px;
-    }
-
-    .pagina-conteudo .main-container > main,
-    .pagina-conteudo .sumario,
-    .pagina-conteudo .conteúdo {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-    }
-
-    .pagina-conteudo .sumario {
-        /* Return the summary to normal flow instead of sticking beside the article. */
-        position: static;
-        height: auto;
-        margin: 0;
-        padding: 16px;
-    }
-
-    .pagina-conteudo .conteúdo {
-        padding: 8px 0;
-    }
-
-    .pagina-conteudo .main-container img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        /* Resize article images to the available width without distorting them. */
-        object-fit: cover;
     }
 
     .pagina-conteudo .conteúdo h2 {

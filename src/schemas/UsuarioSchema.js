@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+const objectIdRegex = /^[0-9a-fA-F]{24}$/;
+
 // ===== Schema para cadastro =====
 
 const cadastroSchema = z.object({
@@ -27,17 +29,20 @@ const cadastroSchema = z.object({
     role: z
         .enum(['LIDER', 'ADMIN']),
 
-    quilombo_id: z
-        .number()
-        .optional()
-}).refine((dados) => {
-    if (dados.role === 'LIDER') {
-        return dados.quilombo_id === 1 || dados.quilombo_id === 2;
-    }
-    return true;
+    id_quilombo: z
+       .string()
+       .regex(objectIdRegex, "ID de quilombo inválido.")
+       .optional()
+       .nullable(),
+    }) 
+  .refine((data) => {
+  if (data.role === 'LIDER') {
+    return typeof data.id_quilombo === 'string' && objectIdRegex.test(data.id_quilombo);
+  }
+  return true;
 }, {
-    message: "Líderes devem informar um quilombo_id válido (1 ou 2).",
-    path: ["quilombo_id"]
+  message: "Líderes devem informar um id_quilombo válido.",
+  path: ["id_quilombo"]
 });
 
 

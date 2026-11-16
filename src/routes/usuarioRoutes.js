@@ -1,25 +1,30 @@
 import { Router } from 'express';
-import { criarUsuario, listarUsuarios, loginAuth } from '../controllers/usuarioController.js';
+import {
+  criarUsuario,
+  listarUsuarios,
+  loginAuth
+} from '../controllers/usuarioController.js';
 import { cadastroSchema, loginSchema, validate } from '../schemas/UsuarioSchema.js';
+import { autenticar, exigirAdmin } from '../middleware/auth.js';
 
 const router = Router();
 
-// GET: Lista de Usuários
-router.get('/', listarUsuarios);
+// Somente ADMIN autenticado pode listar usuários ou cadastrar novos.
+router.get('/', autenticar, exigirAdmin, listarUsuarios);
 
-// POST: Cadastro
 router.post(
-    '/cadastro', 
-    validate(cadastroSchema),
-    criarUsuario
+  '/cadastro',
+  autenticar,
+  exigirAdmin,
+  validate(cadastroSchema),
+  criarUsuario
 );
 
-// POST: Login
+// Login permanece público.
 router.post(
-    '/login',
-    validate(loginSchema),
-    loginAuth
+  '/login',
+  validate(loginSchema),
+  loginAuth
 );
-
 
 export default router;
