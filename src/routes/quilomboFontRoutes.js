@@ -3,7 +3,7 @@ import { getQuilomboFontes } from '../controllers/quilomboFontController.js';
 
 const router = Router();
 
-// Rota GET para listar as fontes
+// Retorna fontes, leis e certificações de uma só vez
 router.get('/', getQuilomboFontes);
 
 export default router;

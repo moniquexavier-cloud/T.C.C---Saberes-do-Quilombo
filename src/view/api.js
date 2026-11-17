@@ -135,6 +135,14 @@ if (campoNome) {
         campoNome.textContent = quilombo.nome;
         document.title = `${quilombo.nome} — Saberes do Quilombo`;
 
+        if (quilombo.nome.toLocaleLowerCase('pt-BR').includes('quingoma')) {
+          document.querySelector('#descricao-quilombo').textContent =
+            'Descrição: É uma comunidade rural remanescente de quilombo conhecido por ser polo de resistência ancestral e preservação da cultura afro-brasileira';
+          document.querySelector('#localizacao-quilombo').textContent =
+            'Localização: Lauro de Freitas, Região Metropolitana de Salvador - BA';
+          document.querySelector('#contato-quilombo').textContent = 'Contato Indisponível';
+        }
+
         for (const [secao, idTitulo, idTexto, idImagem] of [
           ['historia', 'titulo-historia', 'texto-historia', 'imagem-historia'],
           ['modoDeVida', 'titulo-modo-de-vida', 'texto-modo-de-vida', 'imagem-modo-de-vida'],
@@ -303,60 +311,185 @@ if (listaRelatos) {
   carregarRelatos();
 }
 
-// Fontes: GET /api/fontes
+// Referências, leis e certificações: GET /api/fontes
 const listaFontes = document.querySelector('.referencial_teorico');
+const leisFederais = document.querySelector('#accordionFederal');
+const leisBahia = document.querySelector('#accordionBahia');
+const listaCertificacoes = document.querySelector('#accordionCertificacao');
+const erroDetalhes = document.querySelector('#detalhes-erro');
 
-if (listaFontes) {
-  listaFontes.hidden = true;
+function criarItemAccordion(container, id, titulo, conteudo) {
+  const item = document.createElement('div');
+  const cabecalho = document.createElement('h2');
+  const botao = document.createElement('button');
+  const painel = document.createElement('div');
+  const corpo = document.createElement('div');
+
+  item.className = 'accordion-item';
+  cabecalho.className = 'accordion-header';
+  botao.className = 'accordion-button collapsed';
+  botao.type = 'button';
+  botao.dataset.bsToggle = 'collapse';
+  botao.dataset.bsTarget = `#${id}`;
+  botao.setAttribute('aria-expanded', 'false');
+  botao.setAttribute('aria-controls', id);
+  botao.textContent = titulo;
+
+  painel.id = id;
+  painel.className = 'accordion-collapse collapse';
+  painel.dataset.bsParent = `#${container.id}`;
+  corpo.className = 'accordion-body';
+  corpo.append(conteudo);
+
+  cabecalho.append(botao);
+  painel.append(corpo);
+  item.append(cabecalho, painel);
+  container.append(item);
+}
+
+function mostrarEstadoVazio(container, mensagem) {
+  const estado = document.createElement('p');
+  estado.textContent = mensagem;
+  container.append(estado);
+}
+
+function renderizarFontes(fontes) {
+  const categorias = new Map();
+  for (const fonte of fontes) {
+    if (!categorias.has(fonte.categoria)) {
+      categorias.set(fonte.categoria, []);
+    }
+    categorias.get(fonte.categoria).push(fonte);
+  }
+
+  for (const categoria of ['GERAL', 'CORDOARIA', 'QUINGOMA']) {
+    const fontesDaCategoria = categorias.get(categoria);
+    if (!fontesDaCategoria?.length) continue;
+
+    const grupo = document.createElement('div');
+    const titulo = document.createElement('h3');
+    const lista = document.createElement('ol');
+
+    grupo.className = 'cartao-referencial';
+    titulo.textContent = categoria;
+
+    for (const fonte of fontesDaCategoria) {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+
+      link.textContent = fonte.titulo;
+      link.href = resolverUrl(fonte.url);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      item.append(link);
+      lista.append(item);
+    }
+
+    grupo.append(titulo, lista);
+    listaFontes.append(grupo);
+  }
+
+  if (!fontes.length) {
+    mostrarEstadoVazio(listaFontes, 'Nenhuma fonte cadastrada.');
+  }
+}
+
+function renderizarLeis(leis, esfera, container) {
+  const leisDaEsfera = leis.filter((lei) => lei.esfera === esfera);
+
+  leisDaEsfera.forEach((lei, indice) => {
+    const conteudo = document.createElement('div');
+    const titulo = document.createElement('strong');
+    const descricao = document.createElement('p');
+    const tituloBotao = lei.revogado ? `${lei.titulo} (Revogado)` : lei.titulo;
+
+    titulo.textContent = lei.titulo;
+    descricao.textContent = lei.descricao;
+    conteudo.append(titulo, descricao);
+
+    if (lei.revogadoPor) {
+      const revogacao = document.createElement('p');
+      revogacao.textContent = `Revogado por: ${lei.revogadoPor}`;
+      conteudo.append(revogacao);
+    }
+
+    criarItemAccordion(container, `lei-${esfera.toLowerCase()}-${indice}`, tituloBotao, conteudo);
+  });
+
+  if (!leisDaEsfera.length) {
+    mostrarEstadoVazio(container, 'Nenhuma lei cadastrada.');
+  }
+}
+
+function renderizarCertificacoes(certificacoes) {
+  certificacoes.forEach((certificacao, indice) => {
+    const conteudo = document.createElement('div');
+
+    if (certificacao.subtitulo) {
+      const subtitulo = document.createElement('strong');
+      subtitulo.textContent = certificacao.subtitulo;
+      conteudo.append(subtitulo);
+    }
+
+    if (certificacao.conteudo) {
+      const descricao = document.createElement('p');
+      descricao.textContent = certificacao.conteudo;
+      conteudo.append(descricao);
+    }
+
+    if (certificacao.itens.length) {
+      const itens = document.createElement('ol');
+      for (const dado of certificacao.itens) {
+        const item = document.createElement('li');
+        if (dado.titulo) {
+          const titulo = document.createElement('strong');
+          titulo.textContent = `${dado.titulo}: `;
+          item.append(titulo);
+        }
+        if (dado.descricao) {
+          item.append(document.createTextNode(dado.descricao));
+        }
+        itens.append(item);
+      }
+      conteudo.append(itens);
+    }
+
+    if (certificacao.emailContato) {
+      const email = document.createElement('a');
+      email.href = `mailto:${certificacao.emailContato}`;
+      email.textContent = certificacao.emailContato;
+      conteudo.append(email);
+    }
+
+    criarItemAccordion(
+      listaCertificacoes,
+      `certificacao-${indice}`,
+      certificacao.titulo,
+      conteudo
+    );
+  });
+
+  if (!certificacoes.length) {
+    mostrarEstadoVazio(listaCertificacoes, 'Nenhuma informação de certificação cadastrada.');
+  }
+}
+
+if (listaFontes && leisFederais && leisBahia && listaCertificacoes) {
   api('/fontes')
-    .then((fontes) => {
-      listaFontes.replaceChildren();
-
-      const categorias = new Map();
-      for (const fonte of fontes) {
-        if (!categorias.has(fonte.categoria)) {
-          categorias.set(fonte.categoria, []);
-        }
-        categorias.get(fonte.categoria).push(fonte);
+    .then((dados) => {
+      if (
+        !dados ||
+        !Array.isArray(dados.fontes) ||
+        !Array.isArray(dados.leis) ||
+        !Array.isArray(dados.certificacoes)
+      ) {
+        throw new Error('A resposta da API de detalhes está inválida.');
       }
 
-      const nomesCategorias = {
-        GERAL: 'GERAL',
-        CORDOARIA: 'CORDOARIA',
-        QUINGOMA: 'QUINGOMA'
-      };
-
-      for (const categoria of Object.keys(nomesCategorias)) {
-        const fontesDaCategoria = categorias.get(categoria);
-        if (!fontesDaCategoria?.length) continue;
-
-        const grupo = document.createElement('div');
-        const titulo = document.createElement('h3');
-        const lista = document.createElement('ol');
-
-        grupo.className = 'cartao-referencial';
-        titulo.textContent = nomesCategorias[categoria];
-
-        for (const fonte of fontesDaCategoria) {
-          const item = document.createElement('li');
-          const link = document.createElement('a');
-
-          link.textContent = fonte.titulo;
-          link.href = resolverUrl(fonte.url);
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          item.append(link);
-          lista.append(item);
-        }
-
-        grupo.append(titulo, lista);
-        listaFontes.append(grupo);
-      }
-
-      if (!fontes.length) {
-        listaFontes.textContent = 'Nenhuma fonte cadastrada.';
-      }
-      listaFontes.hidden = false;
+      renderizarFontes(dados.fontes);
+      renderizarLeis(dados.leis, 'FEDERAL', leisFederais);
+      renderizarLeis(dados.leis, 'BAHIA', leisBahia);
+      renderizarCertificacoes(dados.certificacoes);
     })
-    .catch((erro) => mostrarErro(listaFontes, erro));
+    .catch((erro) => mostrarErro(erroDetalhes, erro));
 }

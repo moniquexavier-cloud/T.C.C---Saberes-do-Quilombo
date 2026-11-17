@@ -9,35 +9,31 @@
 // For more documentation on playgrounds please refer to
 // https://www.mongodb.com/docs/mongodb-vscode/playgrounds/
 
-// Select the database to use.
-use('mongodbVSCodePlaygroundDB');
+use('test');
 
-// Insert a few documents into the sales collection.
-db.getCollection('sales').insertMany([
-  { 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
-  { 'item': 'jkl', 'price': 20, 'quantity': 1, 'date': new Date('2014-03-01T09:00:00Z') },
-  { 'item': 'xyz', 'price': 5, 'quantity': 10, 'date': new Date('2014-03-15T09:00:00Z') },
-  { 'item': 'xyz', 'price': 5, 'quantity': 20, 'date': new Date('2014-04-04T11:21:39.736Z') },
-  { 'item': 'abc', 'price': 10, 'quantity': 10, 'date': new Date('2014-04-04T21:23:13.331Z') },
-  { 'item': 'def', 'price': 7.5, 'quantity': 5, 'date': new Date('2015-06-04T05:08:13Z') },
-  { 'item': 'def', 'price': 7.5, 'quantity': 10, 'date': new Date('2015-09-10T08:43:00Z') },
-  { 'item': 'abc', 'price': 10, 'quantity': 5, 'date': new Date('2016-02-06T20:20:13Z') },
-]);
-
-// Run a find command to view items sold on April 4th, 2014.
-const salesOnApril4th = db.getCollection('sales').find({
-  date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') }
-}).count();
-
-// Print a message to the output window.
-console.log(`${salesOnApril4th} sales occurred in 2014.`);
-
-// Here we run an aggregation and open a cursor to the results.
-// Use '.toArray()' to exhaust the cursor to return the whole result set.
-// You can use '.hasNext()/.next()' to iterate through the cursor page by page.
-db.getCollection('sales').aggregate([
-  // Find all of the sales that occurred in 2014.
-  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
-  // Group the total sales for each product.
-  { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
-]);
+db.getCollection('certificacaos').insertOne({
+  titulo: 'Certificação Quilombola',
+  subtitulo: 'PROCESSO DE CERTIFICAÇÃO',
+  conteudo: 'Guia informativo sobre o processo de reconhecimento e emissão de certidões às comunidades remanescentes de quilombos junto à Fundação Cultural Palmares.',
+  itens: [
+    {
+      titulo: 'Responsável pela Certificação',
+      descricao: 'Fundação Cultural Palmares – FCP: Conforme o 4º artigo do Decreto nº 4.887, de 20 de novembro de 2003, a Fundação Cultural Palmares – FCP é responsável pela emissão de certidões às comunidades quilombolas e sua inscrição em um cadastro geral.'
+    },
+    {
+      titulo: 'Definição de Comunidade Remanescente de Quilombo',
+      descricao: 'Art. 2º do Decreto nº 4.887/2003: Consideram-se remanescentes das comunidades dos quilombos, para os fins deste Decreto, os grupos étnico-raciais, segundo critérios de autoatribuição, com trajetória histórica própria, dotados de relações territoriais específicas, com presunção de ancestralidade negra relacionada com a resistência à opressão histórica sofrida.'
+    },
+    {
+      titulo: 'Documentos Exigidos para Certificação',
+      descricao: 'Documentação necessária: 1. Ata de Reunião ou Assembleia: Ata de reunião específica para tratar do tema da autodeclaração, caso a comunidade não tenha uma associação constituída, ou uma ata de assembleia da associação, se esta já estiver formalizada, com assinatura da maioria de seus membros. 2. Relato Histórico da Comunidade: Um breve relato histórico (geralmente de 2 a 5 páginas) descrevendo a formação da comunidade, seus principais troncos familiares, manifestações culturais tradicionais, atividades produtivas, festejos, religiosidade, entre outros aspectos relevantes. 3. Requerimento de Certificação: Um requerimento de certificação endereçado à presidência da FCP. A documentação e o requerimento deverão ser enviados via e-mail: quilombo@palmares.gov.br'
+    },
+    {
+      titulo: 'Portaria FCP nº 85/2026 – Cadastro Geral das Comunidades Quilombolas',
+      descricao: 'Portaria FCP nº 85/2026: A Portaria 85/2026 nasce com o objetivo de ampliar direitos. Ao mesmo tempo em que valoriza a ancestralidade Quilombola ao reconhecer que a história oral também é instrumento para a construção e garantia de políticas públicas, ela se abre ao uso das novas tecnologias, ao aceitar vídeos para fins de comprovação de autodefinição da Comunidade.'
+    }
+  ],
+  emailContato: 'quilombo@palmares.gov.br',
+  createdAt: new Date(),
+  updatedAt: new Date()
+});
