@@ -1,51 +1,88 @@
-import { criarToken } from '../middleware/auth.js';
+import jwt from 'jsonwebtoken';
 
-const usuariosMock = [
+
+const objectIdRegex = /^[0-9a-fA-F]{24}$/;
+
+
+const getJwtSecret = () => {
+  const jwtSecret = process.env.JWT_SECRET;
+
+
+  if (!jwtSecret || jwtSecret.length < 32) {
+    throw new Error('JWT_SECRET must be set and contain at least 32 characters.');
+  }
+  return jwtSecret;
+};
+
+
+export const criarToken = usuario => {
+  const jwtSecret = getJwtSecret();
+
+
+  return jwt.sign(
     {
-        id: 1,
-        nome: 'Administrador Site',
-        email: 'admin@documenta.com',
-        senha: '123456',
-        role: 'ADMIN'
+      nome: usuario.nome,
+      email: usuario.email,
+      role: usuario.role,
+      id_quilombo: usuario.id_quilombo ? String(usuario.id_quilombo) : null
     },
+    jwtSecret,
     {
-        id: 2,
-        nome: 'Líder de Cordoaria',
-        email: 'lider.cordoaria@quilombo.com',
-        senha: 'cordoaria0800',
-        role: 'LIDER',
-        quilombo_id: 1
-    },
-    {
-        id: 3,
-        nome: 'Líder de Quingoma',
-        email: 'lider.quingoma@quilombo.com',
-        senha: 'quingoma007',
-        role: 'LIDER',
-        quilombo_id: 2
+      algorithm: 'HS256',
+      subject: String(usuario._id || usuario.id),
+      expiresIn: '1h'
     }
-];
+  );
+};
 
 
-// login do usuário
-export const loginAuth = (req, res) => {
-    const { email, senha } = req.body;
-    const usuarioEncontrado = usuariosMock.find(
-        usuario => usuario.email === email && usuario.senha === senha
-    );
+export const autenticar = (req, res, next) => {
+  const authorization = req.get('authorization');
+  const token = authorization?.startsWith('Bearer ')
+    ? authorization.slice('Bearer '.length).trim()
+    : '';
 
-    if (!usuarioEncontrado) {
-        return res.status(401).json({
-            erro: 'Credenciais inválidas. E-mail ou senha incorretos.'
-        });
-    }
 
-    const usuario = { ...usuarioEncontrado };
-    delete usuario.senha;
-
-    return res.status(200).json({
-        mensagem: 'Login realizado com sucesso (Mock)!',
-        token: criarToken(usuario),
-        usuario
+  try {
+    const payload = jwt.verify(token, getJwtSecret(), {
+      algorithms: ['HS256']
     });
+
+
+    if (
+      typeof payload === 'string' ||
+      !payload.sub ||
+      !objectIdRegex.test(payload.sub) ||
+      !['ADMIN', 'LIDER'].includes(payload.role) ||
+      typeof payload.nome !== 'string' ||
+      typeof payload.email !== 'string' ||
+      (payload.role === 'LIDER' && (typeof payload.id_quilombo !== 'string' || !objectIdRegex.test(payload.id_quilombo)))
+    ) {
+      return res.status(401).json({
+        mensagem: 'Token inválido ou expirado.'
+      });
+    }
+
+
+    req.usuario = {
+      _id: payload.sub,
+      id: payload.sub,
+      nome: payload.nome,
+      email: payload.email,
+      role: payload.role,
+      id_quilombo: payload.id_quilombo
+    };
+
+
+    next();
+  } catch (error) {
+    if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(401).json({
+        mensagem: 'Token inválido ou expirado.'
+      });
+    }
+
+
+    next(error);
+  }
 };
