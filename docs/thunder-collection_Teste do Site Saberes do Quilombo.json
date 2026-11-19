@@ -1,0 +1,91 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Teste do Site Saberes do Quilombo",
+    "collectionId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+    "dateExported": "2026-11-18T20:02:30.036Z",
+    "version": "1.4",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a0cbddcb-e893-487d-ad50-62706e3d29db",
+            "colId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+            "containerId": "",
+            "name": "http://localhost:3000/api/quilombos/cards",
+            "url": "http://localhost:3000/api/quilombos/cards",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2026-11-18T18:57:54.655Z",
+            "modified": "2026-11-18T18:57:54.655Z",
+            "headers": []
+        },
+        {
+            "_id": "177a9ccb-35f0-4959-bb05-986a168e8eaa",
+            "colId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+            "containerId": "",
+            "name": "http://localhost:3000/api/quilombos/Quilombo da Cordoaria",
+            "url": "http://localhost:3000/api/quilombos/Quilombo da Cordoaria",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2026-11-18T19:06:41.974Z",
+            "modified": "2026-11-18T19:06:41.974Z",
+            "headers": []
+        },
+        {
+            "_id": "164eb2c5-f716-41f8-a5d7-1e3109f8f9fa",
+            "colId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+            "containerId": "",
+            "name": "http://localhost:3000/api/usuarios/login",
+            "url": "http://localhost:3000/api/usuarios/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2026-11-18T19:22:46.805Z",
+            "modified": "2026-11-18T19:22:46.805Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"SeuDadu@gmail.com\",",
+                    "  \"senha\": \"847361\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "a901ac0e-377b-41c0-95cf-454b8f488dce",
+            "colId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+            "containerId": "",
+            "name": "http://localhost:3000/api/usuarios ERRO",
+            "url": "http://localhost:3000/api/usuarios/",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2026-11-18T19:25:45.554Z",
+            "modified": "2026-11-18T19:25:45.554Z",
+            "headers": []
+        },
+        {
+            "_id": "e1a33b32-293a-44fd-a398-3de3190e7d65",
+            "colId": "42935212-9ef7-4c8c-9d64-b623b5c3094b",
+            "containerId": "",
+            "name": "http://localhost:3000/api/usuarios/login Erro",
+            "url": "http://localhost:3000/api/usuarios/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2026-11-18T19:33:06.757Z",
+            "modified": "2026-11-18T19:33:06.757Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"fulano@gmail.com\",",
+                    "  \"senha\": \"736251\"",
+                    "}"
+                ],
+                "form": []
+            }
+        }
+    ],
+    "ref": "xwPeH-eQPk0oeW3J9gAyexFwj7pD7n-CMXZGU0QUziYjoKa25FpCORBg-CwIlFcLzGufm41ZnObKWR49-NCH4w"
+}

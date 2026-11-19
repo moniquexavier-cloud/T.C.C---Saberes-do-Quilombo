@@ -90,7 +90,6 @@ export const loginAuth = async (req, res) => {
       });
     }
 
-
     const { email, senha } = validation.data;
 
 
