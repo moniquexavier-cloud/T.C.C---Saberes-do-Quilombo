@@ -1,18 +1,16 @@
 # Saberes do Quilombo - Desenvolvido por DocumentaHistória
 
- ## Descrição: Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivada do projeto interárea desenvolvida pela rede SESI de Camaçari. 
- O site apresenta informações sobre os quilombos da região metropolitana de Salvador, com o objetivo de compartilhar os seus saberes e dar visibilidade 
- a esses povos e as questões que enfrentam no dia a dia.
+Descrição: Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivada do projeto interárea desenvolvida pela rede SESI de Camaçari. O site apresenta informações sobre os quilombos da região metropolitana de Salvador, com o objetivo de compartilhar os seus saberes e dar visibilidade a esses povos e as questões que enfrentam no dia a dia.
 
- # Principais Endpoints:
+ ## Principais Endpoints:
 
- ## GET http://localhost:3000/api/quilombos/cards 
+ # GET http://localhost:3000/api/quilombos/cards 
  Mostra uma lista de cards dos quilombos disponíveis
 
- ## GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma
+ # GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma
  Mostra dados e informações dos respectivos quilombos procurados
 
- ## GET http://localhost:3000/api/fontes
+ # GET http://localhost:3000/api/fontes
  Mostra as fontes utilizadas para a criação do site
 
  ## POST http://localhost:3000/api/usuarios/login 
