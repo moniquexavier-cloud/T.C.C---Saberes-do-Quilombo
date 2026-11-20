@@ -4,22 +4,22 @@ Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivad
 
  ## Principais Endpoints:
 
- GET http://localhost:3000/api/quilombos/cards 
+ GET http://localhost:3000/api/quilombos/cards: 
  Mostra uma lista de cards dos quilombos disponíveis
 
- GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma
+ GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma:
  Mostra dados e informações dos respectivos quilombos procurados
 
- GET http://localhost:3000/api/fontes
+ GET http://localhost:3000/api/fontes:
  Mostra as fontes utilizadas para a criação do site
 
- POST http://localhost:3000/api/usuarios/login 
+ POST http://localhost:3000/api/usuarios/login: 
  Autentica o líder do quilombo cadastrado no site pelos administradores e retorna o token JWT
 
- POST http://localhost:3000/api/usuarios/cadastro
+ POST http://localhost:3000/api/usuarios/cadastro:
  Cadastra um novo usuário(líder ou administrador) na plataforma (feito por administradores)
 
- POST http://localhost:3000/api/usuarios/relatos
+ POST http://localhost:3000/api/usuarios/relatos:
  Envia um relato feito por um líder cadastrado no site
 
  ## Tecnologias Utilizadas
@@ -62,16 +62,16 @@ Git
 
 ## Instalação & Configurações:
 
- 1. Clone o repositório:
+## 1. Clone o repositório:
 
 git clone [https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git](https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git)
 cd T.C.C---Saberes-do-Quilombo-main
 
-2. Instale as dependências:
+## 2. Instale as dependências:
 
 npm install
 
-3. Inicie o servidor:
+## 3. Inicie o servidor:
 
 npm run dev
 
