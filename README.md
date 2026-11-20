@@ -1,28 +1,28 @@
-# Saberes do Quilombo - Desenvolvido por DocumentaHistória
+## Saberes do Quilombo - Desenvolvido por DocumentaHistória
 
-Descrição: Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivada do projeto interárea desenvolvida pela rede SESI de Camaçari. O site apresenta informações sobre os quilombos da região metropolitana de Salvador, com o objetivo de compartilhar os seus saberes e dar visibilidade a esses povos e as questões que enfrentam no dia a dia.
+Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivada do projeto interárea desenvolvida pela rede SESI de Camaçari. O site apresenta informações sobre os quilombos da região metropolitana de Salvador, com o objetivo de compartilhar os seus saberes e dar visibilidade a esses povos e as questões que enfrentam no dia a dia.
 
- ## Principais Endpoints:
+ # Principais Endpoints:
 
- # GET http://localhost:3000/api/quilombos/cards 
+ GET http://localhost:3000/api/quilombos/cards 
  Mostra uma lista de cards dos quilombos disponíveis
 
- # GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma
+ GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma
  Mostra dados e informações dos respectivos quilombos procurados
 
- # GET http://localhost:3000/api/fontes
+ GET http://localhost:3000/api/fontes
  Mostra as fontes utilizadas para a criação do site
 
- ## POST http://localhost:3000/api/usuarios/login 
+ POST http://localhost:3000/api/usuarios/login 
  Autentica o líder do quilombo cadastrado no site pelos administradores e retorna o token JWT
 
- ## POST http://localhost:3000/api/usuarios/cadastro
+ POST http://localhost:3000/api/usuarios/cadastro
  Cadastra um novo usuário(líder ou administrador) na plataforma (feito por administradores)
 
- ## POST http://localhost:3000/api/usuarios/relatos
+ POST http://localhost:3000/api/usuarios/relatos
  Envia um relato feito por um líder cadastrado no site
 
- # Tecnologias Utilizadas
+ ## Tecnologias Utilizadas
 
  Front-end: HTML e CSS
 
@@ -34,7 +34,7 @@ Descrição: Plataforma API desenvolvida como Trabalho de Conclusão de Curso (T
 
  Testes & Qualidade: Cypress, Jest, Thunder Client
 
-# Estrutura de Pastas
+## Estrutura de Pastas
 
 T.C.C---Saberes-do-Quilombo/
 ├── .github/workflows/    # Pipelines de automação e deploy (GitHub Actions)
@@ -50,9 +50,9 @@ T.C.C---Saberes-do-Quilombo/
 ├── ROTEIRO_TESTES.md     # Guia detalhado para execução dos testes
 └── server.js             # Ponto de entrada e inicialização do servidor
 
-# Como Executar o Projeto
+## Como Executar o Projeto
 
-## Pré requistos:
+# Pré requistos:
 
 Node.js
 
@@ -60,18 +60,18 @@ MongoDB instalado localmente ou uma conta gratuita no MongoDB Atlas
 
 Git
 
-# Instalação & Configurações:
+## Instalação & Configurações:
 
-##  1. Clone o repositório:
+#  1. Clone o repositório:
 
 git clone [https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git](https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git)
 cd T.C.C---Saberes-do-Quilombo-main
 
-##  2. Instale as dependências:
+#  2. Instale as dependências:
 
 npm install
 
-##  3. Inicie o servidor:
+#  3. Inicie o servidor:
 
 npm run dev
 
