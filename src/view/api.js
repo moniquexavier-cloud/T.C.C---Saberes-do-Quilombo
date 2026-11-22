@@ -137,10 +137,15 @@ if (campoNome) {
 
         if (quilombo.nome.toLocaleLowerCase('pt-BR').includes('quingoma')) {
           document.querySelector('#descricao-quilombo').textContent =
-            'Descrição: É uma comunidade rural remanescente de quilombo conhecido por ser polo de resistência ancestral e preservação da cultura afro-brasileira';
+            'Descrição: Comunidade quilombola localizada em Lauro de Freitas, marcada pela resistência ancestral, pelas relações comunitárias e pela preservação de saberes afro-brasileiros.';
           document.querySelector('#localizacao-quilombo').textContent =
             'Localização: Lauro de Freitas, Região Metropolitana de Salvador - BA';
           document.querySelector('#contato-quilombo').textContent = 'Contato Indisponível';
+        }
+
+        if (quilombo.nome.toLocaleLowerCase('pt-BR').includes('cordoaria')) {
+          document.querySelector('#descricao-quilombo').textContent =
+            'Descrição: Comunidade quilombola situada em Abrantes, Camaçari, formada por famílias negras que preservam a memória ancestral, os vínculos comunitários e as tradições locais.';
         }
 
         for (const [secao, idTitulo, idTexto, idImagem] of [
