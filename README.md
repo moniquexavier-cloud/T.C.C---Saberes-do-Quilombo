@@ -97,42 +97,6 @@ URL base local: `http://localhost:3000/api`
 
 Requisições autenticadas devem enviar o token no cabeçalho `Authorization: Bearer <token>`.
 
-### Exemplos de requisição
-
-Login:
-
-```http
-POST /api/usuarios/login
-Content-Type: application/json
-
-{
-  "email": "lider@example.com",
-  "senha": "sua-senha"
-}
-```
-
-O cadastro de um líder exige um `id_quilombo` válido do MongoDB; o campo `role` aceita `LIDER` ou `ADMIN`:
-
-```json
-{
-  "nome": "Nome do líder",
-  "email": "lider@example.com",
-  "senha": "uma-senha-segura",
-  "role": "LIDER",
-  "id_quilombo": "ID_DE_24_CARACTERES"
-}
-```
-
-Criação e edição de relatos usam um corpo JSON com `texto` entre 10 e 2.000 caracteres:
-
-```json
-{
-  "texto": "Texto do relato com pelo menos dez caracteres."
-}
-```
-
-Os endpoints de cadastro/listagem de usuários exigem perfil administrador. Apenas líderes autenticados podem criar relatos; apenas o líder autor pode editá-los. A API valida os dados recebidos e retorna erros HTTP para requisições inválidas ou não autorizadas.
-
 ## Testes
 
 - `npm test` — executa os testes de integração com Jest e Supertest. Os testes conectam ao MongoDB configurado em `MONGO_URI`.
