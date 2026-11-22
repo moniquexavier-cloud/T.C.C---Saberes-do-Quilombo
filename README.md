@@ -1,84 +1,168 @@
-# Saberes do Quilombo - Desenvolvido por DocumentaHistória
+# Saberes do Quilombo
 
-Plataforma API desenvolvida como Trabalho de Conclusão de Curso (TCC) e derivada do projeto interárea desenvolvida pela rede SESI de Camaçari. O site apresenta informações sobre os quilombos da região metropolitana de Salvador, com o objetivo de compartilhar os seus saberes e dar visibilidade a esses povos e as questões que enfrentam no dia a dia.
+Plataforma desenvolvida como Trabalho de Conclusão de Curso (TCC), derivada de um projeto interdisciplinar da rede SESI de Camaçari. O site reúne informações sobre comunidades quilombolas da Região Metropolitana de Salvador para compartilhar seus saberes, sua história e as questões que enfrentam.
 
- ## Principais Endpoints:
+## Funcionalidades
 
- GET http://localhost:3000/api/quilombos/cards: 
- Mostra uma lista de cards dos quilombos disponíveis
+- Páginas públicas com cards e informações sobre os quilombos.
+- Página de detalhes com referencial teórico, leis e informações sobre certificação quilombola.
+- Busca no conteúdo do site.
+- Área pública de relatos, com criação e edição de relatos por líderes autenticados.
+- Gerenciamento de usuários por administradores.
+- API REST com autenticação JWT e persistência em MongoDB.
 
- GET http://localhost:3000/api/quilombos/Quilombo da Cordoaria & GET http://localhost:3000/api/quilombos/Quilombo Quingoma:
- Mostra dados e informações dos respectivos quilombos procurados
+## Tecnologias
 
- GET http://localhost:3000/api/fontes:
- Mostra as fontes utilizadas para a criação do site
+- **Interface:** HTML, CSS, JavaScript e Bootstrap.
+- **Servidor/API:** Node.js e Express.
+- **Banco de dados:** MongoDB e Mongoose.
+- **Validação:** Zod.
+- **Autenticação:** JWT e bcrypt.
+- **Testes:** Jest, Supertest e Cypress.
 
- POST http://localhost:3000/api/usuarios/login: 
- Autentica o líder do quilombo cadastrado no site pelos administradores e retorna o token JWT
+## Requisitos
 
- POST http://localhost:3000/api/usuarios/cadastro:
- Cadastra um novo usuário(líder ou administrador) na plataforma (feito por administradores)
+- Node.js e npm.
+- MongoDB local ou uma instância MongoDB Atlas.
+- Git.
 
- POST http://localhost:3000/api/usuarios/relatos:
- Envia um relato feito por um líder cadastrado no site
+## Configuração e execução
 
- ## Tecnologias Utilizadas
+1. Clone o repositório e entre na pasta:
 
- Front-end: HTML e CSS
+   ```bash
+   git clone https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git
+   cd T.C.C---Saberes-do-Quilombo
+   ```
 
- Back-end: Node.js e Express
+2. Instale as dependências:
 
- Banco de Dados: MongoDB & Mongoose
+   ```bash
+   npm install
+   ```
 
- Segurança & Autenticação: JSON Web Token (JWT), variáveis de ambiente (dotenv)
+3. Crie um arquivo `.env` a partir do modelo `.env.example`:
 
- Testes & Qualidade: Cypress, Jest, Thunder Client
+   ```powershell
+   Copy-Item .env.example .env
+   ```
 
-## Estrutura de Pastas
+   No macOS/Linux, use `cp .env.example .env`.
 
-T.C.C---Saberes-do-Quilombo/
-├── .github/workflows/    # Pipelines de automação e deploy (GitHub Actions)
-├── cypress/              # Testes End-to-End (E2E) com Cypress
-├── docs/                 # Documentação complementar e collections do Thunder Client
-├── images/               # Recursos visuais do projeto
-├── src/                  # Código-fonte (controllers, models, routes, middlewares, views)
-├── tests/                # Testes unitários e de integração
-├── .env.example          # Modelo das variáveis de ambiente necessárias
-├── app.js                # Configuração principal da aplicação Express
-├── cypress.config.js     # Configurações do Cypress
-├── package.json          # Dependências e scripts do projeto
-├── ROTEIRO_TESTES.md     # Guia detalhado para execução dos testes
-└── server.js             # Ponto de entrada e inicialização do servidor
+4. Configure as variáveis no `.env`:
 
-## Como Executar o Projeto
+   | Variável | Descrição |
+   | --- | --- |
+   | `MONGO_URI` | URI de conexão com o MongoDB. Substitua as credenciais e o banco de exemplo pelos valores da sua instância. |
+   | `JWT_SECRET` | Segredo privado usado para assinar os tokens JWT. Defina um valor forte e mantenha-o fora do controle de versão. |
+   | `PORT` | Porta HTTP da aplicação; o padrão é `3000`. |
 
-## Pré requistos:
+5. Inicie o servidor em modo de desenvolvimento:
 
-Node.js
+   ```bash
+   npm run dev
+   ```
 
-MongoDB instalado localmente ou uma conta gratuita no MongoDB Atlas
+   O servidor conecta ao MongoDB antes de começar a aceitar requisições. Com a configuração padrão, acesse <http://localhost:3000/>.
 
-Git
+Para iniciar sem o reinício automático do Nodemon, use `npm start`.
 
-## Instalação & Configurações:
+## Páginas do site
 
-## 1. Clone o repositório:
+Com o servidor em execução, estas páginas estão disponíveis:
 
-git clone [https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git](https://github.com/moniquexavier-cloud/T.C.C---Saberes-do-Quilombo.git)
-cd T.C.C---Saberes-do-Quilombo-main
+- `/index.html` — página inicial e cards dos quilombos.
+- `/conteudo1.html` e `/conteudo2.html` — conteúdo dos quilombos selecionados.
+- `/detalhes.html` — referencial teórico, leis e certificação quilombola.
+- `/resultados.html` — resultados da busca.
+- `/login.html` — autenticação de usuários.
+- `/relatos.html` — listagem e gerenciamento de relatos conforme o perfil autenticado.
 
-## 2. Instale as dependências:
+## API
 
-npm install
+URL base local: `http://localhost:3000/api`
 
-## 3. Inicie o servidor:
+| Método | Rota | Acesso | Descrição |
+| --- | --- | --- | --- |
+| `GET` | `/quilombos/cards` | Público | Lista os cards. Aceita o filtro opcional `?nome=...`. |
+| `GET` | `/quilombos/:nome` | Público | Retorna as informações do quilombo pelo nome (busca sem diferenciar maiúsculas/minúsculas). |
+| `GET` | `/fontes` | Público | Retorna `fontes`, `leis` e `certificacoes`, usados na página de detalhes. |
+| `POST` | `/usuarios/login` | Público | Autentica o usuário e retorna um token JWT. |
+| `GET` | `/usuarios` | Administrador | Lista usuários sem retornar suas senhas. |
+| `POST` | `/usuarios/cadastro` | Administrador | Cadastra um usuário com perfil `LIDER` ou `ADMIN`. |
+| `GET` | `/relatos` | Público | Lista os relatos. |
+| `POST` | `/relatos` | Líder autenticado | Cria um relato para o quilombo associado ao líder. |
+| `PATCH` | `/relatos/:id` | Autor líder | Edita o próprio relato. |
+| `DELETE` | `/relatos/:id` | Autor líder ou administrador | Exclui o relato próprio; administradores podem excluir qualquer relato. |
 
-npm run dev
+Requisições autenticadas devem enviar o token no cabeçalho `Authorization: Bearer <token>`.
 
+### Exemplos de requisição
 
+Login:
 
+```http
+POST /api/usuarios/login
+Content-Type: application/json
 
+{
+  "email": "lider@example.com",
+  "senha": "sua-senha"
+}
+```
 
+O cadastro de um líder exige um `id_quilombo` válido do MongoDB; o campo `role` aceita `LIDER` ou `ADMIN`:
 
+```json
+{
+  "nome": "Nome do líder",
+  "email": "lider@example.com",
+  "senha": "uma-senha-segura",
+  "role": "LIDER",
+  "id_quilombo": "ID_DE_24_CARACTERES"
+}
+```
 
+Criação e edição de relatos usam um corpo JSON com `texto` entre 10 e 2.000 caracteres:
 
+```json
+{
+  "texto": "Texto do relato com pelo menos dez caracteres."
+}
+```
+
+Os endpoints de cadastro/listagem de usuários exigem perfil administrador. Apenas líderes autenticados podem criar relatos; apenas o líder autor pode editá-los. A API valida os dados recebidos e retorna erros HTTP para requisições inválidas ou não autorizadas.
+
+## Testes
+
+- `npm test` — executa os testes de integração com Jest e Supertest. Os testes conectam ao MongoDB configurado em `MONGO_URI`.
+- `npx cypress run` — executa os testes E2E. Inicie antes o servidor com `npm run dev`, em outro terminal.
+- `npx cypress open` — abre a interface do Cypress; também requer o servidor em execução.
+
+O roteiro adicional está em [`ROTEIRO_TESTES.md`](./ROTEIRO_TESTES.md).
+
+## Estrutura do projeto
+
+```text
+.
+├── .github/workflows/  # Automação do GitHub Actions
+├── cypress/            # Testes end-to-end
+├── docs/               # Documentação e coleção do Thunder Client
+├── images/             # Imagens e ícones servidos pela aplicação
+├── src/
+│   ├── controllers/    # Lógica das rotas
+│   ├── middleware/     # Autenticação e autorização
+│   ├── models/         # Modelos e conexão com o MongoDB
+│   ├── routes/         # Rotas da API
+│   ├── schemas/        # Validação de requisições
+│   └── view/           # Páginas, estilos e scripts do site
+├── tests/              # Testes de integração
+├── .env.example        # Modelo de configuração local
+├── app.js              # Configuração do Express e montagem das rotas
+├── server.js           # Conexão com o banco e inicialização do servidor
+└── package.json        # Dependências e comandos do projeto
+```
+
+## Créditos
+
+Desenvolvido por DocumentaHistória.
